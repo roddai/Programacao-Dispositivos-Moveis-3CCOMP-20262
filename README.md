@@ -3,12 +3,12 @@
 Este é o repositório da disciplina **Programação de Dispositivos Móveis**.
 
 ## 👨‍💻 Desenvolvedor
-- Nome: Rodrigo da Rosa
-- RA: xxxxxxxxxxxxx
+- Nome: Arthur Henrique dos Anjos Ferreira
+- RA: 25028270
 - Curso: CCOMP – 3º Semestre
 
 ## 📅 Data
-- Data da criação: 04/08/2026
+- Data da criação: 06/08/2026
 
 ## 📂 Estrutura do projeto
 
