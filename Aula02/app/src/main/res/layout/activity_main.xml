@@ -1,0 +1,83 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="@color/green">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="LIVRARIA FECAP"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:srcCompat="@drawable/livro01" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="100dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:srcCompat="@drawable/livro02" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="100dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="30dp"
+        app:srcCompat="@drawable/livro03"
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="0dp"
+        android:text="Comprar"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="0dp"
+        android:text="Comprar"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="0dp"
+        android:text="Comprar"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
