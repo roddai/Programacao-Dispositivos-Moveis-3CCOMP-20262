@@ -29,7 +29,7 @@
         android:layout_marginTop="70dp"
         android:textSize="20dp"
         android:textColor="@color/black"
-        android:fontFamily="@font/voltera_demo_regular"
+        android:fontFamily="cursive"
         app:layout_constraintTop_toBottomOf="@id/btconfirmar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -73,7 +73,7 @@
         android:maxLength="8"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
-        app:layout_constraintTop_toBottomOf="@id/inNome"
+        app:layout_constraintTop_toBottomOf="@+id/inNome"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -87,8 +87,36 @@
         android:textSize="16sp"
         android:textColor="@color/white"
         android:backgroundTint="@color/Green2"
-        app:layout_constraintTop_toBottomOf="@id/inSenha"
+        app:layout_constraintTop_toBottomOf="@+id/inSenha"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/imginsta"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/insta_logo"
+        app:layout_constraintTop_toBottomOf="@+id/siganos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imgx" />
+
+    <ImageView
+        android:id="@+id/imgx"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/siganos"
+        app:srcCompat="@drawable/x_logo"
+        app:layout_constraintStart_toEndtOf="@+id/imginsta"
+        app:layout_constraintEnd_toStartOf="@+id/imglink" />
+
+    <ImageView
+        android:id="@+id/imglink"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/siganos"
+        app:srcCompat="@drawable/linkedin_logo"
+        app:layout_constraintStart_toEndOf="@+id/imgx"
         app:layout_constraintEnd_toEndOf="parent" />
 
 
