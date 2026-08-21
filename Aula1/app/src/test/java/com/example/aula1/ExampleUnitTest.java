@@ -1,4 +1,4 @@
-package com.example.projetoaula2livrariafecap;
+package com.example.aula1;
 
 import org.junit.Test;
 

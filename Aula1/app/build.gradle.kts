@@ -3,13 +3,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.projetoaula2livrariafecap"
+    namespace = "com.example.aula1"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.example.projetoaula2livrariafecap"
+        applicationId = "com.example.aula1"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
