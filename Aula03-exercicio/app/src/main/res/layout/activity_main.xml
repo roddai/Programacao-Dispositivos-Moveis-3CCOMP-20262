@@ -8,12 +8,72 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/txtTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="BEM VINDO AO MEU APP!"
+        android:textSize="24sp"
+        android:textColor="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.15" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="169dp"
+        android:layout_height="137dp"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/logofecap1"
+        app:layout_constraintTop_toBottomOf="@id/txtTitulo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <EditText
+        android:id="@+id/editSenha"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:hint="Digite sua senha aqui"
+        android:inputType="textPassword"
+        app:layout_constraintTop_toBottomOf="@id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/imgInstagram"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="40dp"
+        app:srcCompat="@drawable/instalogo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imgLinkedin"
+        app:layout_constraintHorizontal_chainStyle="packed" />
+
+
+    <ImageView
+        android:id="@+id/imgLinkedin"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        app:srcCompat="@drawable/linkedin"
+        app:layout_constraintBottom_toBottomOf="@id/imgInstagram"
+        app:layout_constraintTop_toTopOf="@id/imgInstagram"
+        app:layout_constraintStart_toEndOf="@id/imgInstagram"
+        app:layout_constraintEnd_toStartOf="@id/imgTwitter" />
+
+    <ImageView
+        android:id="@+id/imgTwitter"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        app:srcCompat="@drawable/twitter"
+        app:layout_constraintBottom_toBottomOf="@id/imgInstagram"
+        app:layout_constraintTop_toTopOf="@id/imgInstagram"
+        app:layout_constraintStart_toEndOf="@id/imgLinkedin"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
