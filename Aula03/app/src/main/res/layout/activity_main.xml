@@ -36,10 +36,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Confirmar"
+        android:backgroundTint="@color/blue"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/caixaTexto"
+        app:layout_constraintTop_toBottomOf="@id/caixaDeSenha"
  />
 
         <EditText
@@ -52,5 +53,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/logo_fecap.png"/>
+
+
+        <EditText
+            android:id="@+id/caixaDeSenha"
+            android:layout_width="match_parent"
+            android:inputType="numberPassword"
+            android:layout_marginTop="5dp"
+            android:maxLength="8"
+            android:layout_height="38dp"
+            android:hint="Digite aqui sua senha..."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/caixaTexto"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
