@@ -41,7 +41,7 @@
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caixa"
+        app:layout_constraintTop_toBottomOf="@+id/caixaSenha"
 
          />
 
@@ -55,6 +55,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imagem_fecap0"/>
+
+
+        <EditText
+            android:id="@+id/caixaSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="Digite sua senha aqui"
+            android:inputType="numberPassword"
+            android:maxLength="8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/caixa"
+            />
     />
 
 
