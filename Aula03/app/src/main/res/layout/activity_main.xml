@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:padding="30dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -12,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bem-vindo ao meu app!"
-        android:textSize="38sp"
+        android:textSize="33sp"
         android:textColor="@color/blue"
         android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,11 +21,36 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/logo_fecap.png"
         android:layout_width="100dp"
         android:layout_height="140dp"
         app:srcCompat="@drawable/logo_fecap"
-        tools:layout_editor_absoluteX="149dp"
-        tools:layout_editor_absoluteY="98dp" />
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo"
+ />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirmar"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/caixaTexto"
+ />
+
+        <EditText
+            android:id="@+id/caixaTexto"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:hint="Digite seu nome aqui..."
+            android:inputType="text"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logo_fecap.png"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
