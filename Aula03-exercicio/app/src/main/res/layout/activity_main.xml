@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bem-vindo ao meu APP!"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="150dp"
         android:textSize="30dp"
         android:textColor="@color/Green2"
         android:fontFamily="@font/voltera_demo_regular"
@@ -26,14 +26,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Siga-nos nas redes sociais"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="70dp"
         android:textSize="20dp"
         android:textColor="@color/black"
         android:fontFamily="@font/voltera_demo_regular"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btconfirmar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/LogoFECAP"
@@ -75,6 +74,20 @@
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         app:layout_constraintTop_toBottomOf="@id/inNome"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btconfirmar"
+        android:layout_width="140dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        android:text="Confirmar"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/Green2"
+        app:layout_constraintTop_toBottomOf="@id/inSenha"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
