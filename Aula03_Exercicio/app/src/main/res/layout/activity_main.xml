@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:padding="24dp"
     android:layout_margin="10dp"
-    android:background="@color/bege"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <TextView
@@ -69,6 +69,48 @@
         app:layout_constraintTop_toBottomOf="@+id/entrada_password"
         />
 
+    <TextView
+        android:id="@+id/logos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Siga-nos nas redes sociais"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="50dp"
+        />
+
+    <ImageView
+        android:id="@+id/insta"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/insta"
+        app:layout_constraintEnd_toEndOf="@+id/x"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logos"
+
+        />
+    <ImageView
+        android:id="@+id/x"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        app:srcCompat="@drawable/x"
+        app:layout_constraintEnd_toStartOf="@id/linkedin"
+        app:layout_constraintStart_toEndOf="@+id/insta"
+        app:layout_constraintTop_toBottomOf="@+id/logos"
+
+        />
+    <ImageView
+        android:id="@+id/linkedin"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/linkedin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/x"
+        app:layout_constraintTop_toBottomOf="@id/logos"
+
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
