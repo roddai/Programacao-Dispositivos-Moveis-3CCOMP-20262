@@ -57,6 +57,7 @@
 
         <EditText
             android:id="@+id/caixaDeSenha"
+            android:fontFamily="cursive"
             android:layout_width="match_parent"
             android:inputType="numberPassword"
             android:layout_marginTop="5dp"
