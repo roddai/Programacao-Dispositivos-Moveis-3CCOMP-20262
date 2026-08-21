@@ -52,12 +52,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageViewLogo" />
+    <EditText
+        android:id="@+id/editTextSenha"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#BDBDBD"
+        android:hint="Digite sua senha aqui"
+        android:inputType="numberPassword"
+        android:maxLength="8"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:textColor="#000000"
+        android:textColorHint="#A0A0A0"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextNome" />
 
     <Button
         android:id="@+id/buttonConfirmar"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="72dp"
         android:backgroundTint="#3F51B5"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
@@ -67,14 +84,16 @@
         android:textSize="12sp"
         app:cornerRadius="24dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextNome" />
+        app:layout_constraintTop_toBottomOf="@id/editTextSenha" />
 
     <TextView
         android:id="@+id/textViewRedesSociais"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
+        android:fontFamily="cursive"
         android:text="Siga-nos nas redes sociais"
         android:textColor="#000000"
         android:textSize="14sp"
