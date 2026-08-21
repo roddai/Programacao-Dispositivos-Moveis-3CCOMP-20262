@@ -68,6 +68,44 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/caixaTexto"/>
 
+    <ImageView
+        android:id="@+id/logo_insta.png"
+        android:layout_width="57dp"
+        android:layout_height="69dp"
+        app:srcCompat="@drawable/logo_insta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/logo_x.png"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/logo_x.png"
+        android:layout_width="57dp"
+        android:layout_height="69dp"
+        app:srcCompat="@drawable/logo_x"
+        app:layout_constraintEnd_toStartOf="@id/logo_linkedin.png"
+        app:layout_constraintStart_toEndOf="@+id/logo_insta.png"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/logo_linkedin.png"
+        android:layout_width="57dp"
+        android:layout_height="69dp"
+        app:srcCompat="@drawable/logo_linkedin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/logo_x.png"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/sigaNos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:text="Siga-nos nas redes sociais"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/logo_x.png"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
