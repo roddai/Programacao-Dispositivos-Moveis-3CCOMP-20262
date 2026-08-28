@@ -1,6 +1,9 @@
 package com.example.aula5exemplo1;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,15 +13,31 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
+    Livro livro1, livro2, livro3;
+
+    TextView textInfo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        livro1 = new Livro("Titulo 1", "Autor 1", 2020);
+        livro2 = new Livro("Titulo 2", "Autor 2", 2021);
+        livro3 = new Livro("Titulo 3", "Autor 3", 2022);
+         textInfo = findViewById(R.id.textInfo);
+
+         Button button1 = findViewById(R.id.button);
+         Button button2 = findViewById(R.id.button2);
+         Button button3 = findViewById(R.id.button3);
+
+        button1.setOnClickListener(View -> textInfo.setText(livro1.getInfo()));
+        button2.setOnClickListener(View -> textInfo.setText(livro2.getInfo()));
+        button3.setOnClickListener(View -> textInfo.setText(livro3.getInfo()));
+
+
+
+
     }
 }
