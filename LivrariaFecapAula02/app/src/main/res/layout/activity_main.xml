@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_green"
+    android:padding="30dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Livraria FECAP"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/MelhorDoQueNosFilmes"
+        android:layout_width="100dp"
+        android:layout_height="130dp"
+        app:srcCompat="@drawable/MelhorDoQueNosFilmes"
+        app:layout_constraintEnd_toStartOf="@id/PercyJackson"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titulo"
+        android:layout_marginTop="20dp"
+        />
+
+    <ImageView
+        android:id="@+id/PercyJackson"
+        android:layout_width="100dp"
+        android:layout_height="130dp"
+        app:srcCompat="@drawable/PercyJackson"
+        app:layout_constraintEnd_toStartOf="@id/PrincipeCruel"
+        app:layout_constraintStart_toEndOf="@id/MelhorDoQueNosFilmes"
+        app:layout_constraintTop_toBottomOf="@id/titulo"
+        android:layout_marginTop="20dp"
+        />
+
+    <ImageView
+        android:id="@+id/PrincipeCruel"
+        android:layout_width="100dp"
+        android:layout_height="130dp"
+        app:srcCompat="@drawable/PrincipeCruel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/PercyJackson"
+        app:layout_constraintTop_toBottomOf="@id/titulo"
+        android:layout_marginTop="20dp"
+        />
+
+    <Button
+        android:id="@+id/botao1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comprar"
+        app:layout_constraintEnd_toEndOf="@id/MelhorDoQueNosFilmes"
+        app:layout_constraintStart_toStartOf="@id/MelhorDoQueNosFilmes"
+        app:layout_constraintTop_toBottomOf="@id/MelhorDoQueNosFilmes"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/light_blue"
+        android:backgroundTint="@color/dark_blue"
+        />
+
+    <Button
+        android:id="@+id/botao2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comprar"
+        app:layout_constraintEnd_toEndOf="@id/PercyJackson"
+        app:layout_constraintStart_toStartOf="@id/PercyJackson"
+        app:layout_constraintTop_toBottomOf="@id/PercyJackson"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/light_blue"
+        android:backgroundTint="@color/dark_blue"
+        />
+
+    <Button
+        android:id="@+id/botao3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comprar"
+        app:layout_constraintEnd_toEndOf="@id/PrincipeCruel"
+        app:layout_constraintStart_toStartOf="@id/PrincipeCruel"
+        app:layout_constraintTop_toBottomOf="@id/PrincipeCruel"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/light_blue"
+        android:backgroundTint="@color/dark_blue"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
