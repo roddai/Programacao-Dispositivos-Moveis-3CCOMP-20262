@@ -8,17 +8,33 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import android.widget.Button;
+import android.widget.TextView;
+
 public class MainActivity extends AppCompatActivity {
+
+    Livro livro1, livro2, livro3;
+    TextView textInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-    }
+
+        /* Instanciando os livros */
+        livro1 = new Livro("Desenvolvendo seu Primeiro Aplicativo Android", "Luiz Carlos", 2015);
+        livro2 = new Livro("Titulo2", "Autor2", 2020);
+        livro3 = new Livro("Titulo3", "Autor3", 2018);
+
+        textInfo = findViewById(R.id.textInfo);
+
+        Button button1 = findViewById(R.id.button);
+        Button button2 = findViewById(R.id.button2);
+        Button button3 = findViewById(R.id.button3);
+
+        button1.setOnClickListener(v -> textInfo.setText(livro1.getInfo()));
+        button1.setOnClickListener(v -> textInfo.setText(livro2.getInfo()));
+        button1.setOnClickListener(v -> textInfo.setText(livro3.getInfo()));
+         }
 }
