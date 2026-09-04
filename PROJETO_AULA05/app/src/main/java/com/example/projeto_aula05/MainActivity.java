@@ -32,33 +32,32 @@ public class MainActivity extends AppCompatActivity {
         editAltura = findViewById(R.id.editAltura);
         btnCalcular = findViewById(R.id.btnCalcular);
 
-        btnCalcular.setOnClickListener(new View.OnClickListener(){
+        btnCalcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 double peso = Double.parseDouble(editPeso.getText().toString());
                 double altura = Double.parseDouble(editAltura.getText().toString());
                 double imc = peso / (altura * altura);
 
-                Intent intent = null;
+                Intent intent;
 
                 if (imc < 18.5) {
                     intent = new Intent(MainActivity.this, ResultadoAbaixoPeso.class);
 
-                } else if (imc < 25){
+                } else if (imc < 25) {
                     intent = new Intent(MainActivity.this, ResultadoNormal.class);
-                }
-                else if (imc < 30) {
+                } else if (imc < 30) {
                     intent = new Intent(MainActivity.this, ResultadoSobrepeso.class);
-                }
-                else if (imc < 35) {
+                } else if (imc < 35) {
                     intent = new Intent(MainActivity.this, ResultadoObsidade.class);
+                } else {
+                    intent = new Intent(MainActivity.this, ResultadoObesidade2.class);
                 }
-                else if (imc >= 35) {
-                    intent = new Intent(MainActivity.this, ResultadoObesidade2.class)
-                }
-
 
                 startActivity(intent);
+            }
+
+            ;
         });
     }
 }
