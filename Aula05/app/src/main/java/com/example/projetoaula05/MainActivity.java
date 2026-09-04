@@ -44,7 +44,16 @@ public class MainActivity extends AppCompatActivity {
                 if (imc > 18.5){
                     intent = new Intent(MainActivity.this, ResultadoAbaixoPeso.class);
                 }
-                else{
+                else if(imc <24.9){
+                    intent = new Intent(MainActivity.this, ResultadoNormal.class);
+                }
+                else if(imc <29.9){
+                    intent = new Intent(MainActivity.this, ResultadoSobrepeso.class);
+                }
+                else if(imc<39.9){
+                    intent = new Intent(MainActivity.this, ResultadoObesidade1.class);
+                }
+                else {
                     intent = new Intent(MainActivity.this, ResultadoObesidade2.class);
                 }
 
