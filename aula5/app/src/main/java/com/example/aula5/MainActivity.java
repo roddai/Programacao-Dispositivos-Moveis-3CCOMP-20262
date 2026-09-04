@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText edtPeso, editAltura;
+    EditText edtPeso, edtAltura;
     Button btnCalcular;
 
     @Override
@@ -30,27 +31,50 @@ public class MainActivity extends AppCompatActivity {
         });
 
         edtPeso = findViewById(R.id.edtPeso);
-        editAltura = findViewById(R.id.edtAltura);
+        edtAltura = findViewById(R.id.edtAltura);
         btnCalcular = findViewById(R.id.btnCalcular);
 
         btnCalcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               double peso = Double.parseDouble(edtPeso.getText().toString());
-                double altura = Double.parseDouble(editAltura.getText().toString());
+
+                if (edtPeso.getText().toString().isEmpty() ||
+                        edtAltura.getText().toString().isEmpty()) {
+
+                    Toast.makeText(MainActivity.this,
+                            "Preencha peso e altura",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                double peso = Double.parseDouble(
+                        edtPeso.getText().toString());
+
+                double altura = Double.parseDouble(
+                        edtAltura.getText().toString());
+
                 double imc = peso / (altura * altura);
 
                 Intent intent;
 
                 if (imc < 18.5) {
-                    intent = new Intent(MainActivity.this, ResultadoAbaixoPeso.class);
+                    intent = new Intent(MainActivity.this,
+                            ResultadoAbaixoPeso.class);
+                } else if (imc < 25) {
+                    intent = new Intent(MainActivity.this,
+                            ResultadoNormal.class);
+                } else if (imc < 30) {
+                    intent = new Intent(MainActivity.this,
+                            ResultadoSobrepeso.class);
+                } else if (imc < 35) {
+                    intent = new Intent(MainActivity.this,
+                            ResultadoObesidade1.class);
                 } else {
-                    intent = new Intent(MainActivity.this, ResultadoAbaixoPeso.class);
-
-                    startActivity(intent);
+                    intent = new Intent(MainActivity.this,
+                            ResultadoObesidade2.class);
                 }
 
-
+                startActivity(intent);
             }
         });
     }
