@@ -56,9 +56,8 @@ public class MainActivity extends AppCompatActivity {
                 /*
                 Entre 18,5 e 24,9: Peso normal (Eutrofia)
                 Entre 25,0 e 29,9: Sobrepeso
-                Entre 30,0 e 34,9:
-                Obesidade Grau IEntre 35,0 e 39,9:
-                Obesidade Grau II
+                Entre 30,0 e 34,9: Obesidade Grau I
+                Entre 35,0: Obesidade Grau II
                  */
 
                 startActivity(intent);
