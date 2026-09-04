@@ -39,18 +39,26 @@ public class MainActivity extends AppCompatActivity {
                 double altura = Double.parseDouble(editAltura.getText().toString());
                 double imc = peso / (altura * altura);
 
-                Intent intent;
+                Intent intent = null;
 
                 if (imc < 18.5) {
                     intent = new Intent(MainActivity.this, ResultadoAbaixoPeso.class);
 
-                } else if (imc >= 35) {
-                    intent = new Intent(MainActivity.this, ResultadoObesidade2.class);
-
+                } else if (imc < 25){
+                    intent = new Intent(MainActivity.this, ResultadoNormal.class);
                 }
-                startActivity(intent);
-            }
+                else if (imc < 30) {
+                    intent = new Intent(MainActivity.this, ResultadoSobrepeso.class);
+                }
+                else if (imc < 35) {
+                    intent = new Intent(MainActivity.this, ResultadoObsidade.class);
+                }
+                else if (imc >= 35) {
+                    intent = new Intent(MainActivity.this, ResultadoObesidade2.class)
+                }
 
+
+                startActivity(intent);
         });
     }
 }
