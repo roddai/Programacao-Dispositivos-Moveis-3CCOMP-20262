@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:padding="30dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bem-vindo ao meu app!"
+        android:textSize="33sp"
+        android:textColor="@color/blue"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/logo_fecap.png"
+        android:layout_width="100dp"
+        android:layout_height="140dp"
+        app:srcCompat="@drawable/logo_fecap"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo"
+ />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirmar"
+        android:backgroundTint="@color/blue"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/caixaDeSenha"
+ />
+
+        <EditText
+            android:id="@+id/caixaTexto"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:hint="Digite seu nome aqui..."
+            android:inputType="text"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logo_fecap.png"/>
+
+
+        <EditText
+            android:id="@+id/caixaDeSenha"
+            android:fontFamily="cursive"
+            android:layout_width="match_parent"
+            android:inputType="numberPassword"
+            android:layout_marginTop="5dp"
+            android:maxLength="8"
+            android:layout_height="38dp"
+            android:hint="Digite aqui sua senha..."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/caixaTexto"/>
+
+    <ImageView
+        android:id="@+id/logo_insta.png"
+        android:layout_width="57dp"
+        android:layout_height="69dp"
+        app:srcCompat="@drawable/logo_insta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/logo_x.png"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/logo_x.png"
+        android:layout_width="57dp"
+        android:layout_height="69dp"
+        app:srcCompat="@drawable/logo_x"
+        app:layout_constraintEnd_toStartOf="@id/logo_linkedin.png"
+        app:layout_constraintStart_toEndOf="@+id/logo_insta.png"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/logo_linkedin.png"
+        android:layout_width="57dp"
+        android:layout_height="69dp"
+        app:srcCompat="@drawable/logo_linkedin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/logo_x.png"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/sigaNos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:text="Siga-nos nas redes sociais"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/logo_x.png"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
