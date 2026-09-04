@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/abaixoPeso"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textCalculo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cálculo IMC"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
+        android:textSize="40sp"
+        android:paddingTop="150dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textResul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Você está abaixo do peso"
+        android:fontFamily="monospace"
+        android:textSize="20sp"
+        android:paddingTop="50dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textCalculo" />
+
+    <Button
+        android:id="@+id/btnVoltar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Voltar"
+        android:textSize="20dp"
+        android:backgroundTint="@color/roser"
+        android:layout_marginTop="70dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textResul" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
