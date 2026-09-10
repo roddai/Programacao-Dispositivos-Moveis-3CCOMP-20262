@@ -1,6 +1,7 @@
 package com.example.appsdepets;
 
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +10,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+
+    Button detalhe1, detalhe2, detalhe3;
+    Button detalhec1, detalhec2, detalhec3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
