@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
     private Button btn1;
+    private EditText editNome;
     public Pet Thor = new Pet ("Thor", "Dourado", "Golden Retriever", "22/05/2024", 3);
     public Pet Rex = new Pet("Rex", "Preto", "Pinsher", "12/08/2025", 1);
     public Pet Luna = new Pet("Luna", "Dourado", "raça3", "02/03/2025",1);
@@ -29,12 +31,12 @@ public class MainActivity extends AppCompatActivity {
         Button btn1 = findViewById(R.id.btn1);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View -> v){
-                Intent detalhes = new Intent(MainActivity.this, Pet.class);
-                detalhes.putExtra("nome", Thor);
+            public void onClick(View v){
+
+                Intent detalhes = new Intent(MainActivity.this, DetalhesPetActivity.class);
+                detalhes.putExtra("Thor", Thor.getInfo());
                 startActivity(detalhes);
             }
-        }
         });
     }
 }
