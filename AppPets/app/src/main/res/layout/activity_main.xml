@@ -108,7 +108,7 @@
         android:layout_marginTop="20dp"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
-        android:src="@drawable/cachorro1"
+        android:src="@drawable/gato1"
         app:layout_constraintTop_toBottomOf="@id/titulo2"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -128,7 +128,7 @@
         android:layout_marginStart="10dp"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
-        android:src="@drawable/cachorro5"
+        android:src="@drawable/gato2"
         app:layout_constraintTop_toBottomOf="@id/titulo2"
         app:layout_constraintStart_toEndOf="@id/imageView4"/>
 
@@ -148,7 +148,7 @@
         android:layout_marginStart="10dp"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
-        android:src="@drawable/cachorro6"
+        android:src="@drawable/gato3"
         app:layout_constraintTop_toBottomOf="@id/titulo2"
         app:layout_constraintStart_toEndOf="@id/imageView5"/>
 
