@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 mudarTela.putExtra("raca", pet1.raca);
                 mudarTela.putExtra("idade", pet1.idade);
                 mudarTela.putExtra("aniversario", pet1.aniversario);
+                mudarTela.putExtra("fotoPet", R.drawable.pet1);
 
                 startActivity(mudarTela);
             }
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 mudarTela.putExtra("raca", pet2.raca);
                 mudarTela.putExtra("idade", pet2.idade);
                 mudarTela.putExtra("aniversario", pet2.aniversario);
+                mudarTela.putExtra("fotoPet", R.drawable.pet2);
 
                 startActivity(mudarTela);
             }
@@ -72,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 mudarTela.putExtra("raca", pet3.raca);
                 mudarTela.putExtra("idade", pet3.idade);
                 mudarTela.putExtra("aniversario", pet3.aniversario);
+                mudarTela.putExtra("fotoPet", R.drawable.pet3);
 
                 startActivity(mudarTela);
             }
@@ -86,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 mudarTela.putExtra("raca", pet4.raca);
                 mudarTela.putExtra("idade", pet4.idade);
                 mudarTela.putExtra("aniversario", pet4.aniversario);
+                mudarTela.putExtra("fotoPet", R.drawable.pet4);
 
                 startActivity(mudarTela);
             }
@@ -100,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
                 mudarTela.putExtra("raca", pet5.raca);
                 mudarTela.putExtra("idade", pet5.idade);
                 mudarTela.putExtra("aniversario", pet5.aniversario);
+                mudarTela.putExtra("fotoPet", R.drawable.pet5);
 
                 startActivity(mudarTela);
             }
@@ -114,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 mudarTela.putExtra("raca", pet6.raca);
                 mudarTela.putExtra("idade", pet6.idade);
                 mudarTela.putExtra("aniversario", pet6.aniversario);
+                mudarTela.putExtra("fotoPet", R.drawable.pet6);
 
                 startActivity(mudarTela);
             }
