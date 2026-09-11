@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/verde"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/fecapPet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FECAP PET!"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:padding="30dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/caes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dawgs"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fecapPet" />
+
+    <ImageView
+        android:id="@+id/bullterrier"
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/bulltterrier"
+
+        app:layout_constraintEnd_toStartOf="@id/pug"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/caes" />
+
+    <ImageView
+        android:id="@+id/pug"
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/pug"
+        android:layout_marginTop="10dp"
+
+        app:layout_constraintEnd_toStartOf="@id/spitzalemao"
+        app:layout_constraintStart_toEndOf="@id/bullterrier"
+        app:layout_constraintTop_toBottomOf="@id/caes" />
+
+    <ImageView
+        android:id="@+id/spitzalemao"
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/spitzalemao"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/pug"
+        app:layout_constraintTop_toBottomOf="@id/caes" />
+
+    <Button
+        android:id="@+id/detalhe1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bull Terrier"
+        android:textSize="12dp"
+
+        app:layout_constraintEnd_toStartOf="@id/pug"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bullterrier" />
+
+    <Button
+        android:id="@+id/detalhe2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pug"
+        android:textSize="12dp"
+        android:layout_marginTop="12dp"
+
+        app:layout_constraintEnd_toStartOf="@id/spitzalemao"
+        app:layout_constraintStart_toEndOf="@id/bullterrier"
+        app:layout_constraintTop_toBottomOf="@id/pug" />
+
+    <Button
+        android:id="@+id/detalhe3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Spitz Alemão"
+        android:textSize="12dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/pug"
+        app:layout_constraintTop_toBottomOf="@id/spitzalemao" />
+
+
+
+
+
+    <TextView
+        android:id="@+id/gatos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="catws"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detalhe2" />
+
+    <ImageView
+        android:id="@+id/persa"
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/persa"
+
+        app:layout_constraintEnd_toStartOf="@id/siames"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gatos" />
+
+    <ImageView
+        android:id="@+id/siames"
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/siames"
+        android:layout_marginTop="10dp"
+
+        app:layout_constraintEnd_toStartOf="@id/sphynx"
+        app:layout_constraintStart_toEndOf="@id/persa"
+        app:layout_constraintTop_toBottomOf="@id/gatos" />
+
+    <ImageView
+        android:id="@+id/sphynx"
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/sphynx"
+        android:layout_marginTop="10dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/siames"
+        app:layout_constraintTop_toBottomOf="@id/gatos" />
+
+    <Button
+        android:id="@+id/detalhec1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Persa"
+        android:textSize="12dp"
+
+        app:layout_constraintEnd_toStartOf="@id/siames"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/persa" />
+
+    <Button
+        android:id="@+id/detalhec2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Siamês"
+        android:textSize="12dp"
+        android:layout_marginTop="12dp"
+
+        app:layout_constraintEnd_toStartOf="@id/sphynx"
+        app:layout_constraintStart_toEndOf="@id/persa"
+        app:layout_constraintTop_toBottomOf="@id/siames" />
+
+    <Button
+        android:id="@+id/detalhec3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sphynx"
+        android:textSize="12dp"
+        android:layout_marginTop="12dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/siames"
+        app:layout_constraintTop_toBottomOf="@id/sphynx" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
