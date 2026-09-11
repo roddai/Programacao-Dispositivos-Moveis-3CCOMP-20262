@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         btnCao1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent irParaSegundaTela = new Intent(MainActivity.this, Detalhes.class);
+                Intent irParaSegundaTela = new Intent(MainActivity.this, com.example.myapplication.Detalhes.class);
                 irParaSegundaTela.putExtra("info", cao1.getInfo());
                 startActivity(irParaSegundaTela);
             }

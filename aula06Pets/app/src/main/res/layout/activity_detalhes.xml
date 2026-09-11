@@ -37,44 +37,5 @@
         app:layout_constraintStart_toStartOf="@+id/imgPetDetalhe"
         android:layout_marginTop="20dp"/>
 
-    <TextView
-        android:id="@+id/txtCor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cor: "
-        android:textSize="30sp"
-        app:layout_constraintTop_toBottomOf="@+id/txtNome"
-        app:layout_constraintStart_toStartOf="@+id/txtNome"
-        android:layout_marginTop="10dp"/>
-
-    <TextView
-        android:id="@+id/txtRaca"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Raça: "
-        android:textSize="30sp"
-        app:layout_constraintTop_toBottomOf="@+id/txtCor"
-        app:layout_constraintStart_toStartOf="@+id/txtCor"
-        android:layout_marginTop="10dp"/>
-
-    <TextView
-        android:id="@+id/txtIdade"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Idade: "
-        android:textSize="30sp"
-        app:layout_constraintTop_toBottomOf="@+id/txtRaca"
-        app:layout_constraintStart_toStartOf="@+id/txtRaca"
-        android:layout_marginTop="10dp"/>
-
-    <TextView
-        android:id="@+id/txtAniversario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Aniversário: "
-        android:textSize="30sp"
-        app:layout_constraintTop_toBottomOf="@+id/txtIdade"
-        app:layout_constraintStart_toStartOf="@+id/txtIdade"
-        android:layout_marginTop="10dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
