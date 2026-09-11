@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/titulo"
+        android:id="@+id/TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/azul"
@@ -29,7 +29,7 @@
         android:paddingTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titulo"/>
+        app:layout_constraintTop_toBottomOf="@id/TextView"/>
 
     <TextView
         android:id="@+id/gatos"
