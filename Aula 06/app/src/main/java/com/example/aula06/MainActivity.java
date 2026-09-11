@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v){
 
                 Intent detalhes = new Intent(MainActivity.this, DetalhesPetActivity.class);
-                detalhes.putExtra("Thor", Thor.getInfo());
+             //   detalhes.putExtra("Thor", Thor.getInfo());
                 startActivity(detalhes);
             }
         });
