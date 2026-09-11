@@ -8,12 +8,169 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="FECAP Pet!"
+        android:textSize="35dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/caes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cães"
+        android:textSize="25dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titulo"
+        app:layout_constraintBottom_toTopOf="@id/imgCao2"/>
+
+    <ImageView
+        android:id="@+id/imgCao1"
+        android:src="@drawable/caramelo"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/caes"
+        app:layout_constraintStart_toStartOf="@id/btnCao1"
+        app:layout_constraintEnd_toEndOf="@id/btnCao1"
+        app:layout_constraintBottom_toTopOf="@id/btnCao1"
+        />
+
+    <ImageView
+        android:id="@+id/imgCao2"
+        android:src="@drawable/husky"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintTop_toBottomOf="@id/caes"
+        app:layout_constraintStart_toStartOf="@id/btnCao2"
+        app:layout_constraintEnd_toEndOf="@id/btnCao2"
+        app:layout_constraintBottom_toTopOf="@id/btnCao2"
+        />
+
+    <ImageView
+        android:id="@+id/imgCao3"
+        android:src="@drawable/salsicha"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/caes"
+        app:layout_constraintStart_toStartOf="@id/btnCao3"
+        app:layout_constraintEnd_toEndOf="@id/btnCao3"
+        app:layout_constraintBottom_toTopOf="@id/btnCao3"
+        />
+
+    <Button
+        android:id="@+id/btnCao1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detalhes"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnCao2"
+        app:layout_constraintTop_toBottomOf="@id/caes"/>
+
+    <Button
+        android:id="@+id/btnCao2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detalhes"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toEndOf="@id/btnCao1"
+        app:layout_constraintTop_toBottomOf="@id/caes"/>
+
+    <Button
+        android:id="@+id/btnCao3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detalhes"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toEndOf="@id/btnCao2"
+        app:layout_constraintTop_toBottomOf="@id/caes"/>
+
+    <TextView
+        android:id="@+id/gatos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gatos"
+        android:textSize="25dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnCao2" />
+
+    <ImageView
+        android:id="@+id/imgGato1"
+        android:src="@drawable/salsicha"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/gatos"
+        app:layout_constraintStart_toStartOf="@id/btnGato1"
+        app:layout_constraintEnd_toEndOf="@id/btnGato1"
+        app:layout_constraintBottom_toTopOf="@id/btnGato1"/>
+
+    <ImageView
+        android:id="@+id/imgGato2"
+        android:src="@drawable/salsicha"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/gatos"
+        app:layout_constraintStart_toStartOf="@id/btnGato2"
+        app:layout_constraintEnd_toEndOf="@id/btnGato2"
+        app:layout_constraintBottom_toTopOf="@id/btnGato2"/>
+
+    <ImageView
+        android:id="@+id/imgGato3"
+        android:src="@drawable/salsicha"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/gatos"
+        app:layout_constraintStart_toStartOf="@id/btnGato3"
+        app:layout_constraintEnd_toEndOf="@id/btnGato3"
+        app:layout_constraintBottom_toTopOf="@id/btnGato3"
+        />
+
+    <Button
+        android:id="@+id/btnGato1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detalhes"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintTop_toBottomOf="@id/gatos" />
+
+    <Button
+        android:id="@+id/btnGato2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detalhes"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintStart_toEndOf="@id/btnGato1"
+        app:layout_constraintTop_toBottomOf="@id/gatos"/>
+
+    <Button
+        android:id="@+id/btnGato3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detalhes"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintStart_toEndOf="@id/btnGato2"
+        app:layout_constraintTop_toBottomOf="@id/gatos"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
