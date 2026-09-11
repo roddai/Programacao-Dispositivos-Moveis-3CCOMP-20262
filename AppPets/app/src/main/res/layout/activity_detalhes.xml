@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/creme"
+    android:id="@+id/main"
+    android:padding="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imgPet"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/cachorro1"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/txtNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Nome:"
+        android:textSize="22sp"
+        app:layout_constraintTop_toBottomOf="@id/imgPet"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txtCor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Cor:"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/txtNome"
+        app:layout_constraintStart_toStartOf="@id/txtNome" />
+
+    <TextView
+        android:id="@+id/txtRaca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Raça:"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/txtCor"
+        app:layout_constraintStart_toStartOf="@id/txtNome" />
+
+    <TextView
+        android:id="@+id/txtIdade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Idade:"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/txtRaca"
+        app:layout_constraintStart_toStartOf="@id/txtNome" />
+
+    <TextView
+        android:id="@+id/txtAniversario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Aniversário:"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/txtIdade"
+        app:layout_constraintStart_toStartOf="@id/txtNome" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

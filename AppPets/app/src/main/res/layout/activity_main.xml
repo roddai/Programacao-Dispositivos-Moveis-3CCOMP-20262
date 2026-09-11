@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/creme"
+    android:id="@+id/main"
+    android:padding="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="FECAP PET"
+        android:textColor="@color/blue"
+        android:textSize="35dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/subtitulo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:text="Cães"
+        android:textColor="@color/blue"
+        android:textSize="25dp"
+        app:layout_constraintTop_toBottomOf="@id/titulo"
+        app:layout_constraintStart_toStartOf="@id/titulo"
+        app:layout_constraintEnd_toEndOf="@id/titulo" />
+
+    <ImageView
+        android:id="@+id/dog1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/cachorro1"
+        app:layout_constraintEnd_toStartOf="@id/dog2"
+        app:layout_constraintTop_toTopOf="@id/dog2" />
+
+    <ImageView
+        android:id="@+id/dog2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/cachorro2"
+        app:layout_constraintTop_toBottomOf="@id/subtitulo1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/dog3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/cachorro3"
+        app:layout_constraintTop_toBottomOf="@id/subtitulo1"
+        app:layout_constraintStart_toEndOf="@id/dog2"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnCachorro1"
+        android:layout_width="85dp"
+        android:layout_height="40dp"
+        android:text="Detalhes"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/dog1"
+        app:layout_constraintStart_toStartOf="@id/dog1"
+        app:layout_constraintEnd_toEndOf="@id/dog1"
+        />
+
+    <Button
+        android:id="@+id/btnCachorro2"
+        android:layout_width="85dp"
+        android:layout_height="40dp"
+        android:text="Detalhes"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/dog2"
+        app:layout_constraintStart_toStartOf="@id/dog2"
+        app:layout_constraintEnd_toEndOf="@id/dog2"
+        />
+
+    <Button
+        android:id="@+id/btnCachorro3"
+        android:layout_width="85dp"
+        android:layout_height="40dp"
+        android:text="Detalhes"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/dog3"
+        app:layout_constraintStart_toStartOf="@id/dog3"
+        app:layout_constraintEnd_toEndOf="@id/dog3"
+        />
+
+    <TextView
+        android:id="@+id/subtitulo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Gatos"
+        android:textColor="@color/blue"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/btnCachorro2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/gato1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/gato1"
+        app:layout_constraintTop_toBottomOf="@id/subtitulo2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/gato2" />
+
+    <ImageView
+        android:id="@+id/gato2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/gato2"
+        app:layout_constraintTop_toTopOf="@id/gato1"
+        app:layout_constraintStart_toEndOf="@id/gato1"
+        app:layout_constraintEnd_toStartOf="@id/gato3" />
+
+    <ImageView
+        android:id="@+id/gato3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/gato3"
+        app:layout_constraintTop_toTopOf="@id/gato1"
+        app:layout_constraintStart_toEndOf="@id/gato2"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnGato1"
+        android:layout_width="85dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:text="Detalhes"
+        app:layout_constraintTop_toBottomOf="@id/gato1"
+        app:layout_constraintStart_toStartOf="@id/gato1"
+        app:layout_constraintEnd_toEndOf="@id/gato1" />
+
+    <Button
+        android:id="@+id/btnGato2"
+        android:layout_width="85dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:text="Detalhes"
+        app:layout_constraintTop_toBottomOf="@id/gato2"
+        app:layout_constraintStart_toStartOf="@id/gato2"
+        app:layout_constraintEnd_toEndOf="@id/gato2" />
+
+    <Button
+        android:id="@+id/btnGato3"
+        android:layout_width="85dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:text="Detalhes"
+        app:layout_constraintTop_toBottomOf="@id/gato3"
+        app:layout_constraintStart_toStartOf="@id/gato3"
+        app:layout_constraintEnd_toEndOf="@id/gato3" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
