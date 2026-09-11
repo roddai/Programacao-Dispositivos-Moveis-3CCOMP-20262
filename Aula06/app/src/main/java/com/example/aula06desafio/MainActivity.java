@@ -25,5 +25,28 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+
+
+        btn1 = findViewById(R.id.btn1);
+        btn2 = findViewById(R.id.btn2);
+        btn3 = findViewById(R.id.btn3);
+        btn4 = findViewById(R.id.btn4);
+        btn5 = findViewById(R.id.btn5);
+        btn6 = findViewById(R.id.btn6);
+
+        btn1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Pet pet1 = new Pet("Pipoca", "Caramelo", "Pug", 3, "24/10");
+                Intent mudarTela = new Intent(MainActivity.this, DetalhesActivity.class);
+                mudarTela.putExtra("nome", pet1.nome);
+                mudarTela.putExtra("cor", pet1.cor);
+                mudarTela.putExtra("raca", pet1.raca);
+                mudarTela.putExtra("idade", pet1.idade);
+                mudarTela.putExtra("aniversario", pet1.aniversario);
+
+                startActivity(mudarTela);
+            }
+        });
     }
 }
