@@ -64,7 +64,7 @@
 
 
     <Button
-        android:id="@+id/btn2"
+        android:id="@+id/btnCao2"
         android:layout_width="95dp"
         android:layout_height="wrap_content"
         android:text="Detalhes"
