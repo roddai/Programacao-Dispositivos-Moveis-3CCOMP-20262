@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/green">
+
+    <TextView
+        android:id="@+id/tituloApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FECAP PET"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/txtCao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cães"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloApp" />
+
+    <ImageView
+        android:id="@+id/imgCao1"
+        android:layout_width="90dp"
+        android:layout_height="70dp"
+        android:src="@drawable/cao1"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/imgCao2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCao"
+        tools:srcCompat="@drawable/cao1" />
+
+    <Button
+        android:id="@+id/btnCao1"
+        android:layout_width="95dp"
+        android:layout_height="wrap_content"
+        android:text="Detalhes"
+        app:layout_constraintTop_toBottomOf="@+id/imgCao1"
+        app:layout_constraintStart_toStartOf="@+id/imgCao1"
+        app:layout_constraintEnd_toEndOf="@+id/imgCao1"
+        />
+
+    <ImageView
+        android:id="@+id/imgCao2"
+        android:layout_width="90dp"
+        android:layout_height="70dp"
+        app:srcCompat="@drawable/cao2"
+        app:layout_constraintTop_toBottomOf="@+id/txtCao"
+        app:layout_constraintStart_toEndOf="@+id/imgCao1"
+        app:layout_constraintEnd_toStartOf="@+id/imgCao3"
+        android:layout_marginTop="10dp"/>
+
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="95dp"
+        android:layout_height="wrap_content"
+        android:text="Detalhes"
+        app:layout_constraintTop_toBottomOf="@+id/imgCao2"
+        app:layout_constraintStart_toStartOf="@+id/imgCao2"
+        app:layout_constraintEnd_toEndOf="@+id/imgCao2"
+        />
+
+    <ImageView
+        android:id="@+id/imgCao3"
+        android:layout_width="90dp"
+        android:layout_height="70dp"
+        app:srcCompat="@drawable/cao3"
+        app:layout_constraintTop_toBottomOf="@+id/txtCao"
+        app:layout_constraintStart_toEndOf="@+id/imgCao2"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btnCao3"
+        android:layout_width="95dp"
+        android:layout_height="wrap_content"
+        android:text="Detalhes"
+        app:layout_constraintTop_toBottomOf="@+id/imgCao3"
+        app:layout_constraintStart_toStartOf="@+id/imgCao3"
+        app:layout_constraintEnd_toEndOf="@+id/imgCao3"
+        />
+
+
+    <TextView
+        android:id="@+id/txtGato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gatos"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/btnCao1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/imgGato1"
+        android:layout_width="90dp"
+        android:layout_height="70dp"
+        app:srcCompat="@drawable/gato1"
+        app:layout_constraintTop_toBottomOf="@+id/txtGato"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imgGato2"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btnGato1"
+        android:layout_width="95dp"
+        android:layout_height="wrap_content"
+        android:text="Detalhes"
+        app:layout_constraintTop_toBottomOf="@+id/imgGato1"
+        app:layout_constraintStart_toStartOf="@+id/imgGato1"
+        app:layout_constraintEnd_toEndOf="@+id/imgGato1"
+        />
+
+    <ImageView
+        android:id="@+id/imgGato2"
+        android:layout_width="90dp"
+        android:layout_height="70dp"
+        app:srcCompat="@drawable/gato2"
+        app:layout_constraintTop_toBottomOf="@+id/txtGato"
+        app:layout_constraintStart_toEndOf="@+id/imgGato1"
+        app:layout_constraintEnd_toStartOf="@+id/imgGato3"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btnGato2"
+        android:layout_width="95dp"
+        android:layout_height="wrap_content"
+        android:text="Detalhes"
+        app:layout_constraintTop_toBottomOf="@+id/imgGato2"
+        app:layout_constraintStart_toStartOf="@+id/imgGato2"
+        app:layout_constraintEnd_toEndOf="@+id/imgGato2"
+        />
+
+    <ImageView
+        android:id="@+id/imgGato3"
+        android:layout_width="90dp"
+        android:layout_height="70dp"
+        app:srcCompat="@drawable/gato3"
+        app:layout_constraintTop_toBottomOf="@+id/txtGato"
+        app:layout_constraintStart_toEndOf="@+id/imgGato2"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btnGato3"
+        android:layout_width="95dp"
+        android:layout_height="wrap_content"
+        android:text="Detalhes"
+        app:layout_constraintTop_toBottomOf="@+id/imgGato3"
+        app:layout_constraintStart_toStartOf="@+id/imgGato3"
+        app:layout_constraintEnd_toEndOf="@+id/imgGato3"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
