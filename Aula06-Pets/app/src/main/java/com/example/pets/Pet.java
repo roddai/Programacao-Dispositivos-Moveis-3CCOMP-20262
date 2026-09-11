@@ -1,13 +1,11 @@
 package com.example.pets;
 
 public class Pet {
-    String nome;
-    String cor;
-    String raca;
-    int idade;
-    String aniversario;
-
-    Pet(){}
+    private String nome;
+    private String cor;
+    private String raca;
+    private int idade;
+    private String aniversario;
 
     Pet(String nome,String cor,String raca,int idade,String aniversario){
         this.nome = nome;
@@ -16,4 +14,9 @@ public class Pet {
         this.idade = idade;
         this.aniversario = aniversario;
     };
+
+    public String getInfo() {
+        return "Nome: "+ nome + "\nCor: "+cor + "\nRaca: " + raca + "\nIdade: " + idade +"\nAniversário: " +aniversario;
+    }
+
 }
