@@ -15,4 +15,8 @@ public class Pet {
         this.aniversario = niver;
     }
 
+    public String getInfo(){
+        return "Nome: "+nome+"\nCor: "+cor+"\nRaça: "+raca+"\nIdade: "+idade+"\nAniversário: "+aniversario;
+    }
+
 }

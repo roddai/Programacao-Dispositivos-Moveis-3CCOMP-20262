@@ -14,6 +14,21 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class DetalhesPetActivity extends AppCompatActivity {
 
+    public TextView info;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_detalhes);
+
+        info = findViewById(R.id.info);
+
+        String recebido = getIntent().getStringExtra("info");
+
+        info.setText(recebido);
 
     }
+
+
+}
