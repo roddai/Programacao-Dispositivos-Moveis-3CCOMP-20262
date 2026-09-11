@@ -1,5 +1,4 @@
-
-package com.example.myapplication;
+package com.example.aula06_pets;
 
 import android.os.Bundle;
 import android.widget.TextView;

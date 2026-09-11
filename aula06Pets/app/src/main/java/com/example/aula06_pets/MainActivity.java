@@ -21,14 +21,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+        cao1 = new Pet("Bob", "Laranja", "Golden", 7, "10 de maio");
+        cao2 = new Pet("Thor", "Marrom", "Labrador", 3, "8 de abril");
+        cao3 = new Pet("Mel", "Caramelo", "Caramelo", 10, " 20 de setembro");
 
-        cao1 = new Pet("Bob", "Marrom", "Lulu da Pumerania", 3, "12 de maio");
-        cao2 = new Pet("Thor", "Laranja", "Golden", 2, "20 de julho");
-        cao3 = new Pet("Mel", "Caramelo", "Labrador", 4, "5 de outubro");
-
-        gato1 = new Pet("Luna", "Branca", "Persa", 1, "15 de março");
-        gato2 = new Pet("Simba", "Preta e Cinza", "Siamês", 2, "10 de janeiro");
-        gato3 = new Pet("Nina", "Laranja e Branca", "Angorá", 5, "2 de dezembro");
+        gato1 = new Pet("Luna", "Cinza", "Persa", 1, "15 de março");
+        gato2 = new Pet("Simba", "Amarelo", "Siamês", 2, "10 de janeiro");
+        gato3 = new Pet("Nina", "Marrom", "Angorá", 5, "2 de dezembro");
 
 
         Button btnCao1 = findViewById(R.id.btnCao1);
@@ -41,8 +40,50 @@ public class MainActivity extends AppCompatActivity {
         btnCao1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent irParaSegundaTela = new Intent(MainActivity.this, com.example.myapplication.Detalhes.class);
+                Intent irParaSegundaTela = new Intent(MainActivity.this, Detalhes.class);
                 irParaSegundaTela.putExtra("info", cao1.getInfo());
+                startActivity(irParaSegundaTela);
+            }
+
+
+        });
+        btnCao2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent irParaSegundaTela = new Intent(MainActivity.this, Detalhes.class);
+                irParaSegundaTela.putExtra("info", cao2.getInfo());
+                startActivity(irParaSegundaTela);
+            }
+        });
+        btnCao3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent irParaSegundaTela = new Intent(MainActivity.this, Detalhes.class);
+                irParaSegundaTela.putExtra("info", cao3.getInfo());
+                startActivity(irParaSegundaTela);
+            }
+        });
+        btnGato1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent irParaSegundaTela = new Intent(MainActivity.this, Detalhes.class);
+                irParaSegundaTela.putExtra("info", gato1.getInfo());
+                startActivity(irParaSegundaTela);
+            }
+        });
+        btnGato2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent irParaSegundaTela = new Intent(MainActivity.this, Detalhes.class);
+                irParaSegundaTela.putExtra("info", gato2.getInfo());
+                startActivity(irParaSegundaTela);
+            }
+        });
+        btnGato3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent irParaSegundaTela = new Intent(MainActivity.this, Detalhes.class);
+                irParaSegundaTela.putExtra("info", gato3.getInfo());
                 startActivity(irParaSegundaTela);
             }
         });

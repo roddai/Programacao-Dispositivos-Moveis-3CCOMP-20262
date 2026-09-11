@@ -37,5 +37,13 @@
         app:layout_constraintStart_toStartOf="@+id/imgPetDetalhe"
         android:layout_marginTop="20dp"/>
 
-
+    <Button
+        android:id="@+id/btnVoltar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Voltar"
+        app:layout_constraintTop_toBottomOf="@+id/txtNome"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
