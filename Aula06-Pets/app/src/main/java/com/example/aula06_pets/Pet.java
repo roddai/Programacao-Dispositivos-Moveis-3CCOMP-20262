@@ -1,3 +1,5 @@
+package com.example.aula06_pets;
+
 public class Pet {
 
     private String nome;
@@ -26,4 +28,6 @@ public class Pet {
     }
 
 
+    public static class Detalhes {
+    }
 }
