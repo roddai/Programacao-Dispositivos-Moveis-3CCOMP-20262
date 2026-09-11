@@ -21,35 +21,38 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        rex = new Pet("Rex", "Caramelo", "Border-collier",
-                "4 anos", "20 de julho", R.drawable.rex);
-
-        thor = new Pet("Thor", "Cinza", "Persa",
-                "3 anos", "15 de março", R.drawable.thor);
-
-        luna = new Pet("Luna", "Branca e cinza", "Persa",
-                "2 anos", "7 de setembro", R.drawable.luna);
-
-        mimi = new Pet("Mimi", "Branca e marrom", "Siamês",
-                "5 anos", "11 de janeiro", R.drawable.mimi);
-
-        nina = new Pet("Nina", "Branca e preta", "Border-collier",
-                "3 anos", "25 de maio", R.drawable.nina);
-
-        tom = new Pet("Tom", "Preto", "Pantera",
-                "1 ano", "3 de novembro", R.drawable.tom);
+        rex = new Pet("Rex", "Caramelo", "Sem raça definida", "4 anos", "20 de julho", R.drawable.rex);
+        nina = new Pet("Nina", "Preta e branca", "Sem raça definida", "3 anos", "25 de maio", R.drawable.nina);
+        tom = new Pet("Tom", "Preto", "Sem raça definida", "1 ano", "3 de novembro", R.drawable.tom);
+        thor = new Pet("Thor", "Cinza", "Sem raça definida", "3 anos", "15 de março", R.drawable.thor);
+        luna = new Pet("Luna", "Cinza e branca", "Sem raça definida", "2 anos", "7 de setembro", R.drawable.luna);
+        mimi = new Pet("Mimi", "Caramelo e branco", "Sem raça definida", "5 anos", "11 de janeiro", R.drawable.mimi);
 
         Button btnRex = findViewById(R.id.btnRex);
+        Button btnNina = findViewById(R.id.btnNina);
+        Button btnTom = findViewById(R.id.btnTom);
         Button btnThor = findViewById(R.id.btnThor);
         Button btnLuna = findViewById(R.id.btnLuna);
         Button btnMimi = findViewById(R.id.btnMimi);
-        Button btnNina = findViewById(R.id.btnNina);
-        Button btnTom = findViewById(R.id.btnTom);
 
         btnRex.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 abrirDetalhes(rex);
+            }
+        });
+
+        btnNina.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                abrirDetalhes(nina);
+            }
+        });
+
+        btnTom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                abrirDetalhes(tom);
             }
         });
 
@@ -71,20 +74,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 abrirDetalhes(mimi);
-            }
-        });
-
-        btnNina.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                abrirDetalhes(nina);
-            }
-        });
-
-        btnTom.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                abrirDetalhes(tom);
             }
         });
     }
