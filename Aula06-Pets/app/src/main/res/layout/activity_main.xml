@@ -25,7 +25,7 @@
         android:id="@+id/caes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="dawgs"
+        android:text="Dawgs"
         android:textSize="30sp"
         android:textStyle="bold"
         android:padding="10dp"
@@ -71,6 +71,7 @@
         android:layout_height="wrap_content"
         android:text="Bull Terrier"
         android:textSize="12dp"
+        android:backgroundTint="@color/rosav"
 
         app:layout_constraintEnd_toStartOf="@id/pug"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,6 +84,7 @@
         android:text="Pug"
         android:textSize="12dp"
         android:layout_marginTop="12dp"
+        android:backgroundTint="@color/rosav"
 
         app:layout_constraintEnd_toStartOf="@id/spitzalemao"
         app:layout_constraintStart_toEndOf="@id/bullterrier"
@@ -94,6 +96,7 @@
         android:layout_height="wrap_content"
         android:text="Spitz Alemão"
         android:textSize="12dp"
+        android:backgroundTint="@color/rosav"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/pug"
@@ -107,7 +110,7 @@
         android:id="@+id/gatos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="catws"
+        android:text="Catws"
         android:textSize="30sp"
         android:textStyle="bold"
         android:padding="10dp"
@@ -154,6 +157,7 @@
         android:layout_height="wrap_content"
         android:text="Persa"
         android:textSize="12dp"
+        android:backgroundTint="@color/rosav"
 
         app:layout_constraintEnd_toStartOf="@id/siames"
         app:layout_constraintStart_toStartOf="parent"
@@ -166,6 +170,7 @@
         android:text="Siamês"
         android:textSize="12dp"
         android:layout_marginTop="12dp"
+        android:backgroundTint="@color/rosav"
 
         app:layout_constraintEnd_toStartOf="@id/sphynx"
         app:layout_constraintStart_toEndOf="@id/persa"
@@ -178,6 +183,7 @@
         android:text="Sphynx"
         android:textSize="12dp"
         android:layout_marginTop="12dp"
+        android:backgroundTint="@color/rosav"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/siames"

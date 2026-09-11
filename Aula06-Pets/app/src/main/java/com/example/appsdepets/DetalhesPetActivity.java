@@ -15,12 +15,22 @@ import androidx.core.view.WindowInsetsCompat;
 public class DetalhesPetActivity extends AppCompatActivity {
 
     public TextView info;
+    Button btnVoltar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_detalhes);
+
+        btnVoltar = findViewById(R.id.btnVoltar);
+
+        btnVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         info = findViewById(R.id.info);
 
