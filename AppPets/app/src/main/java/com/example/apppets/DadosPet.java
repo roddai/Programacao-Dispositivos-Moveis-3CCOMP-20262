@@ -8,10 +8,10 @@ public class DadosPet {
    private String Cor;
    private String Raca;
    private int Idade;
-   private Date Aniversario;
+   private String Aniversario;
 
 
-   public DadosPet (String Nome, String Raca, String Cor, int Idade, Date Aniversario){
+   public DadosPet (String Nome, String Raca, String Cor, int Idade, String Aniversario){
    this.Nome = Nome;
    this.Raca = Raca;
    this.Cor = Cor;
