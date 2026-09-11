@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nome:"
-        android:textSize="40sp"
+        android:textSize="30sp"
         app:layout_constraintTop_toBottomOf="@id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cor:"
-        android:textSize="40sp"
+        android:textSize="30sp"
         app:layout_constraintTop_toBottomOf="@id/nome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -49,7 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Raça:"
-        android:textSize="40sp"
+        android:textSize="30sp"
         app:layout_constraintTop_toBottomOf="@id/cor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -59,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Idade:"
-        android:textSize="40sp"
+        android:textSize="30sp"
         app:layout_constraintTop_toBottomOf="@id/raca"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -69,7 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Aniversario:"
-        android:textSize="40sp"
+        android:textSize="30sp"
         app:layout_constraintTop_toBottomOf="@id/idade"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
