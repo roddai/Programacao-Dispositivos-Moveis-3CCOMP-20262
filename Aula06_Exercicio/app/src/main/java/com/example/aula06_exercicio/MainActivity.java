@@ -1,6 +1,8 @@
 package com.example.aula06_exercicio;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -13,8 +15,6 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
     Pet cao1, cao2, cao3, gato1, gato2, gato3;
-
-    TextView textInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +29,6 @@ public class MainActivity extends AppCompatActivity {
         gato2 = new Pet("Chamusco", "Bege", "Siamês", 8, "19/10");
         gato3 = new Pet("Foguinho", "Laranja", "Laranja", 5, "15/06");
 
-        textInfo = findViewById(R.id.textInfo);
-
         Button button1 = findViewById(R.id.btnCao1);
         Button button2 = findViewById(R.id.btnCao2);
         Button button3 = findViewById(R.id.btnCao3);
@@ -38,12 +36,66 @@ public class MainActivity extends AppCompatActivity {
         Button button5 = findViewById(R.id.btnGato2);
         Button button6 = findViewById(R.id.btnGato3);
 
-        button1.setOnClickListener(v -> textInfo.setText(cao1.getinfo()));
-        button1.setOnClickListener(v -> textInfo.setText(cao2.getinfo()));
-        button1.setOnClickListener(v -> textInfo.setText(cao3.getinfo()));
-        button1.setOnClickListener(v -> textInfo.setText(gato1.getinfo()));
-        button1.setOnClickListener(v -> textInfo.setText(gato2.getinfo()));
-        button1.setOnClickListener(v -> textInfo.setText(gato3.getinfo()));
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent irParaSegundaTela = new Intent(MainActivity.this, Detalhes.class);
+                irParaSegundaTela.putExtra("detalhePet", cao1.getinfo());
+                startActivity(irParaSegundaTela);
+            }
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent irParaSegundaTela = new Intent(MainActivity.this, Detalhes.class);
+                irParaSegundaTela.putExtra("detalhePet", cao2.getinfo());
+                startActivity(irParaSegundaTela);
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent irParaSegundaTela = new Intent(MainActivity.this, Detalhes.class);
+                irParaSegundaTela.putExtra("detalhePet", cao3.getinfo());
+                startActivity(irParaSegundaTela);
+            }
+        });
+
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent irParaSegundaTela = new Intent(MainActivity.this, Detalhes.class);
+                irParaSegundaTela.putExtra("detalhePet", gato1.getinfo());
+                startActivity(irParaSegundaTela);
+            }
+        });
+
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent irParaSegundaTela = new Intent(MainActivity.this, Detalhes.class);
+                irParaSegundaTela.putExtra("detalhePet", gato2.getinfo());
+                startActivity(irParaSegundaTela);
+            }
+        });
+
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent irParaSegundaTela = new Intent(MainActivity.this, Detalhes.class);
+                irParaSegundaTela.putExtra("detalhePet", gato3.getinfo());
+                startActivity(irParaSegundaTela);
+            }
+        });
+
 
 
 
