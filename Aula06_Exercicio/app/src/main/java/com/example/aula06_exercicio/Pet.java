@@ -16,7 +16,7 @@ public class Pet {
     }
 
     public String getinfo(){
-        return "Nome: " + nome + "Cor: " + cor + "Raça: " + raca + "Idade: " + idade + "Aniversário: " + aniversario;
+        return "Nome: " + nome + "\nCor: " + cor + "\nRaça: " + raca + "\nIdade: " + idade + "\nAniversário: " + aniversario;
     }
 
 
