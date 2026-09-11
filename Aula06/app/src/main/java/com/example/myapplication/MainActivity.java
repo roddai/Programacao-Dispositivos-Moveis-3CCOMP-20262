@@ -44,6 +44,48 @@ public class MainActivity extends AppCompatActivity {
                 irParaSegundaTela.putExtra("info", cao1.getInfo());
                 startActivity(irParaSegundaTela);
             }
+
+
+        });
+        btnCao2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent irParaSegundaTela = new Intent(MainActivity.this, Detalhes.class);
+                irParaSegundaTela.putExtra("info", cao2.getInfo());
+                startActivity(irParaSegundaTela);
+            }
+        });
+        btnCao3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent irParaSegundaTela = new Intent(MainActivity.this, Detalhes.class);
+                irParaSegundaTela.putExtra("info", cao3.getInfo());
+                startActivity(irParaSegundaTela);
+            }
+        });
+        btnGato1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent irParaSegundaTela = new Intent(MainActivity.this, Detalhes.class);
+                irParaSegundaTela.putExtra("info", gato1.getInfo());
+                startActivity(irParaSegundaTela);
+            }
+        });
+        btnGato2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent irParaSegundaTela = new Intent(MainActivity.this, Detalhes.class);
+                irParaSegundaTela.putExtra("info", gato2.getInfo());
+                startActivity(irParaSegundaTela);
+            }
+        });
+        btnGato3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent irParaSegundaTela = new Intent(MainActivity.this, Detalhes.class);
+                irParaSegundaTela.putExtra("info", gato3.getInfo());
+                startActivity(irParaSegundaTela);
+            }
         });
     }
 }
