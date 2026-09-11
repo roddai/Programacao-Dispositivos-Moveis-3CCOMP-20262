@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detalhes do Pet"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <ImageView
+        android:id="@+id/imgPetDetalhe"
+        android:layout_width="140dp"
+        android:layout_height="120dp"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitulo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/txtNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:text="Nome:"
+        app:layout_constraintTop_toBottomOf="@+id/imgPetDetalhe"
+        android:layout_marginTop="24dp"/>
+
+    <TextView
+        android:id="@+id/txtCor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:text="Cor:"
+        app:layout_constraintTop_toBottomOf="@+id/txtNome"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/txtRaca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:text="Racça:"
+        app:layout_constraintTop_toBottomOf="@+id/txtCor"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/txtIdade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:text="Idade:"
+        app:layout_constraintTop_toBottomOf="@+id/txtRaca"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/txtAniversario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:text="Aniversario:"
+        app:layout_constraintTop_toBottomOf="@+id/txtIdade"
+        android:layout_marginTop="10dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
