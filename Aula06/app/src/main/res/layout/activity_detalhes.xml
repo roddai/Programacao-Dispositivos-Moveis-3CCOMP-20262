@@ -36,40 +36,6 @@
         app:layout_constraintTop_toBottomOf="@+id/imgPetDetalhe"
         android:layout_marginTop="24dp"/>
 
-    <TextView
-        android:id="@+id/txtCor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18dp"
-        android:text="Cor:"
-        app:layout_constraintTop_toBottomOf="@+id/txtNome"
-        android:layout_marginTop="10dp"/>
 
-    <TextView
-        android:id="@+id/txtRaca"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18dp"
-        android:text="Racça:"
-        app:layout_constraintTop_toBottomOf="@+id/txtCor"
-        android:layout_marginTop="10dp"/>
-
-    <TextView
-        android:id="@+id/txtIdade"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18dp"
-        android:text="Idade:"
-        app:layout_constraintTop_toBottomOf="@+id/txtRaca"
-        android:layout_marginTop="10dp"/>
-
-    <TextView
-        android:id="@+id/txtAniversario"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18dp"
-        android:text="Aniversario:"
-        app:layout_constraintTop_toBottomOf="@+id/txtIdade"
-        android:layout_marginTop="10dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
