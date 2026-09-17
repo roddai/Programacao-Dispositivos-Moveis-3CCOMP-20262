@@ -34,7 +34,6 @@ public class DetalhesActivity extends AppCompatActivity {
         int imagemRecebida = getIntent().getIntExtra("fotoPet", 0);
 
         imgPet = findViewById(R.id.imgPet);
-
         textoNome.setText("Nome " + nomeRecebido);
         textoCor.setText("Cor:" + corRecebida);
         textoRaca.setText("Raça:" + racaRecebida);
