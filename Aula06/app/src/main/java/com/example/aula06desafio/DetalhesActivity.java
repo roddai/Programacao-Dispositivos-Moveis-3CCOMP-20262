@@ -31,7 +31,7 @@ public class DetalhesActivity extends AppCompatActivity {
         String racaRecebida = getIntent().getStringExtra("raca");
         int idadeRecebida = getIntent().getIntExtra("idade", 0);
         String aniversarioRecebido = getIntent().getStringExtra("aniversario");
-        int imagemRecebida = getIntent().getIntExtra("imagem", 0);
+        int imagemRecebida = getIntent().getIntExtra("fotoPet", 0);
 
         imgPet = findViewById(R.id.imgPet);
 
