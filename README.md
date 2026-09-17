@@ -3,8 +3,8 @@
 Este é o repositório da disciplina **Programação de Dispositivos Móveis**.
 
 ## 👨‍💻 Desenvolvedor
-- Nome: Rodrigo da Rosa
-- RA: xxxxxxxxxxxxx
+- Nome: Guilherme Belcastro Medeiros
+- RA: 25028093
 - Curso: CCOMP – 3º Semestre
 
 ## 📅 Data
