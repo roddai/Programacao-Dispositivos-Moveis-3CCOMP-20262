@@ -29,7 +29,9 @@ public class MainActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+
         });
+
         Button btnCachorro1 = findViewById(R.id.btnCachorro1);
         btnCachorro1.setOnClickListener(new View.OnClickListener() {
                                             @Override
