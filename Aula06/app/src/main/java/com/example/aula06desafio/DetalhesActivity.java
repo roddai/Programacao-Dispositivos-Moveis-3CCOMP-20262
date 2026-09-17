@@ -25,6 +25,7 @@ public class DetalhesActivity extends AppCompatActivity {
         textoRaca = findViewById(R.id.textoRaca);
         textoIdade = findViewById(R.id.textoIdade);
         textoAniversario = findViewById(R.id.textoAniversario);
+        imgPet = findViewById(R.id.imgPet);
 
         String nomeRecebido = getIntent().getStringExtra("nome");
         String corRecebida = getIntent().getStringExtra("cor");
@@ -33,13 +34,11 @@ public class DetalhesActivity extends AppCompatActivity {
         String aniversarioRecebido = getIntent().getStringExtra("aniversario");
         int imagemRecebida = getIntent().getIntExtra("fotoPet", 0);
 
-        imgPet = findViewById(R.id.imgPet);
         textoNome.setText("Nome " + nomeRecebido);
         textoCor.setText("Cor:" + corRecebida);
         textoRaca.setText("Raça:" + racaRecebida);
         textoIdade.setText("Idade:" + idadeRecebida);
         textoAniversario.setText("Aniversário:" + aniversarioRecebido);
-
         if (imagemRecebida != 0) {
             imgPet.setImageResource(imagemRecebida);
         }
