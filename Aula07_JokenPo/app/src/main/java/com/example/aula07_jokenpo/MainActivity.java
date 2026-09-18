@@ -15,7 +15,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     TextView txtResultado;
-    ImageView imgMaquina, imgPedra, imgPapel, imgTesoura;
+    ImageView imgMaquina, imgPedra, imgPapel, imgTesoura, personagemUsuario, imgMasculino, imgFeminino, resultadoMaquina, resultadoUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +28,17 @@ public class MainActivity extends AppCompatActivity {
         imgPedra = findViewById(R.id.imgPedra);
         imgPapel = findViewById(R.id.imgPapel);
         imgTesoura = findViewById(R.id.imgTesoura);
+        resultadoMaquina = findViewById(R.id.resultadoMaquina);
+        personagemUsuario = findViewById(R.id.personagemUsuario);
+        resultadoUsuario = findViewById(R.id.resultadoUsuario);
+        imgMasculino = findViewById(R.id.masculino);
+        imgFeminino = findViewById(R.id.feminino);
 
         imgPedra.setOnClickListener(v -> jogar("pedra"));
         imgPapel.setOnClickListener(v -> jogar("papel"));
         imgTesoura.setOnClickListener(v -> jogar("tesoura"));
-
+        imgMasculino.setOnClickListener(v -> personagemUsuario.setImageResource(R.drawable.usuario_masc));
+        imgFeminino.setOnClickListener(v -> personagemUsuario.setImageResource(R.drawable.usuario_fem));
     }
 
     public void jogar(String escolhaUsuario) {
@@ -42,13 +48,24 @@ public class MainActivity extends AppCompatActivity {
 
         switch (escolhaMaquina) {
             case "pedra":
-                imgMaquina.setImageResource(R.drawable.pedra);
+                resultadoMaquina.setImageResource(R.drawable.pedra);
                 break;
             case "papel":
-                imgMaquina.setImageResource(R.drawable.papel);
+                resultadoMaquina.setImageResource(R.drawable.papel);
                 break;
             case "tesoura":
-                imgMaquina.setImageResource(R.drawable.tesoura);
+                resultadoMaquina.setImageResource(R.drawable.tesoura);
+        }
+
+        switch (escolhaUsuario) {
+            case "pedra":
+                resultadoUsuario.setImageResource(R.drawable.pedra);
+                break;
+            case "papel":
+                resultadoUsuario.setImageResource(R.drawable.papel);
+                break;
+            case "tesoura":
+                resultadoUsuario.setImageResource(R.drawable.tesoura);
         }
 
         if (escolhaUsuario.equals(escolhaMaquina)){
