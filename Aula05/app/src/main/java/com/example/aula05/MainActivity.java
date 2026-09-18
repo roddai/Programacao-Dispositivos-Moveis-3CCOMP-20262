@@ -1,4 +1,4 @@
-package com.example.projetoaula05;
+package com.example.aula05;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         editPeso = findViewById(R.id.editPeso);
-        editAltura = findViewById(R.id.editAltura);
+        editAltura= findViewById(R.id.editAltura);
         btnCalcular = findViewById(R.id.btnCalcular);
 
         btnCalcular.setOnClickListener(new View.OnClickListener() {
@@ -41,22 +41,27 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent;
 
-                if (imc < 18.5) {
+                if(imc<18.5) {
                     intent = new Intent(MainActivity.this, ResultadoAbaixoPeso.class);
+                } else if (imc < 24.9) {
+                    intent = new Intent(MainActivity.this, ResultadoNormal.class);
+                }  else if (imc < 29.9) {
+                    intent = new Intent(MainActivity.this, ResultadoSobrePeso.class);
+                }  else if (imc < 34.9) {
+                    intent = new Intent(MainActivity.this, ResultadoObesidade1.class);
                 } else {
                     intent = new Intent(MainActivity.this, ResultadoObesidade2.class);
                 }
 
-                startActivity(intent);
-
-                /*Menor que 18,5: Abaixo do peso
-                Entre 18,5 e 24,9: Peso normal
+                /*
+                Entre 18,5 e 24,9: Peso normal (Eutrofia)
                 Entre 25,0 e 29,9: Sobrepeso
-                Entre 30,0 e 39,9: Obesidade
-                Maior que 40,0:
-                Obesidade grave*/
+                Entre 30,0 e 34,9: Obesidade Grau I
+                Entre 35,0: Obesidade Grau II
+                 */
+
+                startActivity(intent);
             }
         });
-
     }
 }
