@@ -15,6 +15,7 @@ public class Pet {
      this.idade = i;
     }
 
-
-
+         String getInfo() {
+         return ("Nome: " +nome+ "\nCor:" +cor+ "\nRaça: " +raca+ "\nData de aniversario: " +aniversario+ "\nIdade: " +idade);
+    }
     }

@@ -34,7 +34,57 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v){
 
                 Intent detalhes = new Intent(MainActivity.this, DetalhesPetActivity.class);
-             //   detalhes.putExtra("Thor", Thor.getInfo());
+             detalhes.putExtra("Pet", Thor.getInfo());
+                startActivity(detalhes);
+            }
+        });
+        Button btn2 = findViewById(R.id.btn2);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+
+                Intent detalhes = new Intent(MainActivity.this, DetalhesPetActivity.class);
+                detalhes.putExtra("Pet", Rex.getInfo());
+                startActivity(detalhes);
+            }
+        });
+        Button btn3 = findViewById(R.id.btn3);
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+
+                Intent detalhes = new Intent(MainActivity.this, DetalhesPetActivity.class);
+                detalhes.putExtra("Pet", Luna.getInfo());
+                startActivity(detalhes);
+            }
+        });
+        Button btn4 = findViewById(R.id.btn4);
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+
+                Intent detalhes = new Intent(MainActivity.this, DetalhesPetActivity.class);
+                detalhes.putExtra("Pet", Olaf.getInfo());
+                startActivity(detalhes);
+            }
+        });
+        Button btn5 = findViewById(R.id.btn5);
+        btn5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+
+                Intent detalhes = new Intent(MainActivity.this, DetalhesPetActivity.class);
+                detalhes.putExtra("Pet", Simba.getInfo());
+                startActivity(detalhes);
+            }
+        });
+        Button btn6 = findViewById(R.id.btn6);
+        btn6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+
+                Intent detalhes = new Intent(MainActivity.this, DetalhesPetActivity.class);
+                detalhes.putExtra("Pet", Chico.getInfo());
                 startActivity(detalhes);
             }
         });
