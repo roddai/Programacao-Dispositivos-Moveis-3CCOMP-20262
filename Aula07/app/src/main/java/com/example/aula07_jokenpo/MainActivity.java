@@ -13,10 +13,11 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-
-    TextView txtresultado;
-
+    TextView txtResultado;
     ImageView imgMaquina, imgPedra, imgPapel, imgTesoura;
+    ImageView imgUsuarioMasc, imgUsuarioFem;
+    ImageView imgUsuarioSelecionado, imgUsuarioJogada,  imgInterrogacaoMaquina;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,42 +25,67 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        txtresultado = findViewById(R.id.txtResultado);
+        txtResultado= findViewById(R.id.txtResultado);
         imgMaquina = findViewById(R.id.imgMaquina);
-        imgPedra = findViewById(R.id.imgPedra);
+        imgPedra= findViewById(R.id.imgPedra);
         imgPapel = findViewById(R.id.imgPapel);
         imgTesoura = findViewById(R.id.imgTesoura);
+        imgInterrogacaoMaquina = findViewById(R.id.imgInterrogacaoMaquina);
+        imgUsuarioSelecionado = findViewById(R.id.imgUsuarioSelecionado);
+        imgUsuarioJogada = findViewById(R.id.imgUsuarioJogada);
+        imgUsuarioFem = findViewById(R.id.imgUsuarioFem);
+        imgUsuarioMasc = findViewById(R.id.imgUsuarioMasc);
 
-        imgPedra.setOnClickListener( v -> jogar("pedra"));
-        imgPapel.setOnClickListener( v -> jogar("papel"));
-        imgTesoura.setOnClickListener( v -> jogar("tesoura"));
+        imgUsuarioFem.setOnClickListener(v -> {
+            imgUsuarioSelecionado.setImageResource(R.drawable.usuario_fem);
+        });
+        imgUsuarioMasc.setOnClickListener(v -> {
+            imgUsuarioSelecionado.setImageResource(R.drawable.usuario_masc);
+        });
+
+        imgPedra.setOnClickListener(v -> jogar("pedra"));
+        imgPapel.setOnClickListener(v -> jogar("papel"));
+        imgTesoura.setOnClickListener(v -> jogar("tesoura"));
+
+
     }
     public void jogar(String escolhaUsuario){
-        String[] opcoes = {"pedra", "papel", "tesoura"};
+        switch (escolhaUsuario) {
+            case "pedra" :
+                imgUsuarioJogada.setImageResource(R.drawable.pedra);
+                break;
+            case "papel":
+                imgUsuarioJogada.setImageResource(R.drawable.papel);
+                break;
+            case "tesoura":
+                imgUsuarioJogada.setImageResource(R.drawable.tesoura);
+                break;
+        }
+        String[] opcoes = {"pedra" , "papel" , "tesoura" };
         int numero = new Random().nextInt(3);
         String escolhaMaquina = opcoes[numero];
 
         switch (escolhaMaquina) {
             case "pedra":
-                imgMaquina.setImageResource(R.drawable.pedra);
+                imgInterrogacaoMaquina.setImageResource(R.drawable.pedra);
                 break;
             case "papel":
-                imgMaquina.setImageResource(R.drawable.papel);
+                imgInterrogacaoMaquina.setImageResource(R.drawable.papel);
                 break;
             case "tesoura":
-                imgMaquina.setImageResource(R.drawable.tesoura);
+                imgInterrogacaoMaquina.setImageResource(R.drawable.tesoura);
                 break;
         }
-        if (escolhaUsuario.equals(escolhaMaquina)){
-            txtresultado.setText("Empate!");
-        }
-        else if ((escolhaUsuario.equals("pedra") && escolhaMaquina.equals("tesoura")) ||
-                (escolhaUsuario.equals("papel") && escolhaMaquina.equals("pedra")) ||
-                (escolhaUsuario.equals("tesoura") && escolhaMaquina.equals("papel"))) {
-                    txtresultado.setText("Você venceu!");
-                }
-        else {
-                    txtresultado.setText("Perdeu!");
+
+        if (escolhaUsuario.equals(escolhaMaquina)) {
+            txtResultado.setText("Empate!");
+        } else if ((escolhaUsuario.equals("pedra")&& escolhaMaquina.equals("tesoura")) ||
+                (escolhaUsuario.equals("papel")&& escolhaMaquina.equals(("pedra")) ||
+                        (escolhaUsuario.equals("tesoura")) && escolhaMaquina.equals("papel"))) {
+            txtResultado.setText("Voce venceu!!!");
+        } else {
+            txtResultado.setText("Voce perdeu!");
         }
     }
+
 }
