@@ -15,7 +15,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     TextView txtResultado;
-    ImageView imgMaquina, imgPedra, imgPapel, imgTesoura;
+    ImageView imgInterrogacao, imgInterrogacao2, imgPedra, imgPapel, imgTesoura, imgUsuario, imgUsuarioFem, imgUsuarioMasc;
 
 
     @Override
@@ -25,32 +25,53 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         txtResultado = findViewById(R.id.txtResultado);
-        imgMaquina = findViewById((R.id.imgMaquina));
+        imgInterrogacao = findViewById((R.id.imgInterrogacao));
+        imgInterrogacao2 = findViewById((R.id.imgInterrogacao2));
         imgPedra = findViewById((R.id.imgPedra));
         imgPapel = findViewById((R.id.imgPapel));
         imgTesoura = findViewById((R.id.imgTesoura));
+        imgUsuario = findViewById((R.id.imgUsuario));
+        imgUsuarioFem = findViewById((R.id.imgUsuarioFem));
+        imgUsuarioMasc = findViewById((R.id.imgUsuarioMasc));
 
         imgPedra.setOnClickListener(v -> jogar("pedra"));
         imgPapel.setOnClickListener(v -> jogar("papel"));
         imgTesoura.setOnClickListener(v -> jogar("tesoura"));
+
+        imgUsuarioFem.setOnClickListener(v -> perfil("feminino"));
+        imgUsuarioMasc.setOnClickListener(v -> perfil("masculino"));
     }
 
     public void jogar(String escolhaUsuario){
-        String[] opcoes = {"pedra", "papel", "tesoura"};
+        String[] opcoesSimbolos = {"pedra", "papel", "tesoura"};
         int numero = new Random().nextInt(3);
-        String escolhaMaquina = opcoes[numero];
+        String escolhaMaquina = opcoesSimbolos[numero];
 
         switch (escolhaMaquina) {
             case "pedra":
-                imgMaquina.setImageResource(R.drawable.pedra);
+                imgInterrogacao.setImageResource(R.drawable.pedra);
                 break;
             case "papel":
-                imgMaquina.setImageResource(R.drawable.papel);
+                imgInterrogacao.setImageResource(R.drawable.papel);
                 break;
             case "tesoura":
-                imgMaquina.setImageResource(R.drawable.tesoura);
+                imgInterrogacao.setImageResource(R.drawable.tesoura);
                 break;
         }
+
+        switch (escolhaUsuario) {
+            case "pedra":
+                imgInterrogacao2.setImageResource(R.drawable.pedra);
+                break;
+            case "papel":
+                imgInterrogacao2.setImageResource(R.drawable.papel);
+                break;
+            case "tesoura":
+                imgInterrogacao2.setImageResource(R.drawable.tesoura);
+                break;
+        }
+
+
 
         if (escolhaUsuario.equals(escolhaMaquina)) {
             txtResultado.setText("Empate");
@@ -64,6 +85,16 @@ public class MainActivity extends AppCompatActivity {
             txtResultado.setText("Derrota");
         }
 
+    }
+    public void perfil (String escolhaFoto){
+        switch (escolhaFoto) {
+            case "masculino":
+                imgUsuario.setImageResource(R.drawable.usuario_masc);
+                break;
+            case "feminino":
+                imgUsuario.setImageResource(R.drawable.usuario_fem);
+                break;
+        }
     }
 
 }
