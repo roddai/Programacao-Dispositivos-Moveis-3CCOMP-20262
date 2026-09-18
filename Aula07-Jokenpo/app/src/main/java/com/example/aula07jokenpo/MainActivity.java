@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
 
     TextView txtResultado;
     ImageView imgMaquina, imgPedra, imgPapel, imgTesoura;
+    ImageView imgResulMaq, imgResulJog;
+    ImageView imgJogadorFem, imgJogadorMasc, imgJogador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,30 +35,54 @@ public class MainActivity extends AppCompatActivity {
         imgPapel.setOnClickListener(v -> jogar("papel"));
         imgTesoura.setOnClickListener(v -> jogar("tesoura"));
 
+        imgResulMaq = findViewById(R.id.imgResulMaq);
+        imgResulJog = findViewById(R.id.imgResulJog);
+
+        imgJogadorFem = findViewById(R.id.imgJogadorFem);
+        imgJogadorMasc = findViewById(R.id.imgJogadorMasc);
+        imgJogador = findViewById(R.id.imgJogador);
+
+        imgJogadorFem.setOnClickListener(v -> escolher("feminino"));
+        imgJogadorMasc.setOnClickListener(v -> escolher("masculino"));
+
     }
 
     public void jogar(String escolhaUsuario){
         String[] opcoes = {"pedra", "papel", "tesoura"};
         //escolha da maquina ->
         int numero = new Random().nextInt(3);//variavel tipo int, nextInt = quantidade de obj (nesse caso 0-2, ou seja 3)
-        String escolhaMaquina = opcoes[numero]; //pegar a apartir do indice 0 e conta 3 valores
+        String escolhaMaquina = "";
+                escolhaMaquina = opcoes[numero]; //pegar a apartir do indice 0 e conta 3 valores
 
         switch (escolhaMaquina) {
             case "pedra":
-                imgMaquina.setImageResource(R.drawable.pedra);
+                imgResulMaq.setImageResource(R.drawable.pedra);
                 break;
             case "papel":
-                imgMaquina.setImageResource(R.drawable.papel);
+                imgResulMaq.setImageResource(R.drawable.papel);
                 break;
             case "tesoura":
-                imgTesoura.setImageResource(R.drawable.tesoura);
+                imgResulMaq.setImageResource(R.drawable.tesoura);
+                break;
+
+        }
+
+        switch (escolhaUsuario) {
+            case "pedra":
+                imgResulJog.setImageResource(R.drawable.pedra);
+                break;
+            case "papel":
+                imgResulJog.setImageResource(R.drawable.papel);
+                break;
+            case "tesoura":
+                imgResulJog.setImageResource(R.drawable.tesoura);
                 break;
 
         }
 
         if(escolhaUsuario.equals(escolhaMaquina)){
             txtResultado.setText("Empate");
-        } else if ((escolhaUsuario.equals("Pedra")&& escolhaMaquina.equals("tesoura")) ||
+        } else if ((escolhaUsuario.equals("pedra")&& escolhaMaquina.equals("tesoura")) ||
                     (escolhaUsuario.equals("papel")&& escolhaMaquina.equals("pedra")) ||
                     (escolhaUsuario.equals("tesoura")&& escolhaMaquina.equals("papel"))) {
             txtResultado.setText("Você venceu!!!!!!!!!!!!");
@@ -65,5 +91,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
     };
+
+    public void escolher(String escolhaPersonagem){
+        switch (escolhaPersonagem) {
+            case "feminino":
+                imgJogador.setImageResource(R.drawable.usuario_fem);
+                break;
+            case "masculino":
+                imgJogador.setImageResource(R.drawable.usuario_masc);
+                break;
+        }
+    }
 
 }
