@@ -3,13 +3,13 @@
 Este é o repositório da disciplina **Programação de Dispositivos Móveis**.
 
 ## 👨‍💻 Desenvolvedor
-- Nome: Rodrigo da Rosa
-- RA: xxxxxxxxxxxxx
+- Nome: Michael Condori Mamani
+- RA: 25028261
 - Curso: CCOMP – 3º Semestre
 
 ## 📅 Data
-- Data da criação: 04/08/2026
-
+- Data da criação: 06/08/2026
+- hora: 20:14
 ## 📂 Estrutura do projeto
 
 ## 🔗 Link do repositório original do professor
