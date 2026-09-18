@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         pet3 = new DadosPet("Guilherme", "Doberman","Preto",9,"9 de junho");
         pet4 = new DadosPet("Lua", "Mainecoon","Preto",8,"15 de Dezembro");
         pet5 = new DadosPet("Arthur", "Vira-lata","Branco",8,"19 de maio");
-        pet1 = new DadosPet("Julia", "Persa","Mista",8,"18 de Janeiro");
+        pet6 = new DadosPet("Julia", "Persa","Mista",8,"18 de Janeiro");
 
 
         Button button1 = findViewById(R.id.btnCachorro1);
