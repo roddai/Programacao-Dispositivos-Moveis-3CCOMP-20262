@@ -15,8 +15,9 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     TextView txtResultado;
-    ImageView imgMaquina,imgPedra,imgPapel,imgTesoura;
-
+    ImageView imgPedra,imgPapel,imgTesoura,imgUsuarioFem1,imgUsuarioFem2,imgUsuarioMasc
+    ,imgInterrogacao1,imgInterrogacao2;
+    String personagemEscolhido = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,14 +25,34 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         txtResultado = findViewById(R.id.txtResultado);
-        imgMaquina = findViewById(R.id.imgMaquina);
         imgPedra = findViewById(R.id.imgPedra);
-        imgPapel = findViewById(R.id.imgPapel);
-        imgTesoura = findViewById(R.id.imgTesoura);
+        imgPapel =findViewById(R.id.imgPapel);
+        imgTesoura =findViewById(R.id.imgTesoura);
+        imgUsuarioFem1 = findViewById(R.id.imgUsuarioFem1);
+        imgUsuarioMasc = findViewById(R.id.imgUsuarioMasc);
+        imgInterrogacao1 = findViewById((R.id.imgInterrogacao1);
+        imgInterrogacao2 = findViewById(R.id.imgInterrogacao2);
+
+
+
 
         imgPedra.setOnClickListener(v -> jogar("pedra"));
         imgPapel.setOnClickListener(v -> jogar("papel"));
         imgTesoura.setOnClickListener(v -> jogar("tesoura"));
+
+        imgUsuarioFem1.setOnClickListener(v -> {
+                personagemEscolhido = "Feminino";
+                imgUsuarioFem1.setImageResource(R.drawable.usuario_fem);
+                });
+
+        imgUsuarioMasc.setOnClickListener(v -> {
+            personagemEscolhido = "Masculino";
+            imgUsuarioFem1.setImageResource(R.drawable.usuario_masc);
+        });
+
+
+
+
     }
     public void jogar(String escolhaUsuario){
         String[] opcoes = {"pedra","papel","tesoura"};
@@ -40,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch(escolhaMaquina){
             case "pedra":
-                imgMaquina.setImageResource(R.drawable.pedra);
+                imgPedra.setImageResource(R.drawable.pedra);
                 break;
             case "papel":
                 imgPapel.setImageResource((R.drawable.papel));
