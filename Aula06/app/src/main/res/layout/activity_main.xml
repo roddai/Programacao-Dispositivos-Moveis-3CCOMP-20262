@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_margin="50px"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FECAP PET!"
+        android:textSize="110px"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tituloCaes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cães"
+        android:textSize="80px"
+        android:layout_marginTop="100px"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo"/>
+    <TextView
+        android:id="@+id/tituloGatos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gatos"
+        android:textSize="80px"
+        android:layout_marginTop="100px"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn2"/>
+    <ImageView
+        android:id="@+id/pet1"
+        android:layout_width="250px"
+        android:layout_height="250px"
+        app:srcCompat="@drawable/pet1"
+        app:layout_constraintEnd_toStartOf="@+id/pet2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloCaes"
+        />
+    <ImageView
+        android:id="@+id/pet2"
+        android:layout_width="250px"
+        android:layout_height="250px"
+        app:srcCompat="@drawable/pet2"
+        app:layout_constraintEnd_toStartOf="@+id/pet3"
+        app:layout_constraintStart_toEndOf="@+id/pet1"
+        app:layout_constraintTop_toBottomOf="@+id/tituloCaes"
+        />
+
+    <ImageView
+        android:id="@+id/pet3"
+        android:layout_width="250px"
+        android:layout_height="250px"
+        app:srcCompat="@drawable/pet3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pet2"
+        app:layout_constraintTop_toBottomOf="@+id/tituloCaes"
+        />
+    <ImageView
+        android:id="@+id/pet4"
+        android:layout_width="250px"
+        android:layout_height="250px"
+        app:srcCompat="@drawable/pet4"
+        app:layout_constraintEnd_toStartOf="@+id/pet2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloGatos"
+        />
+    <ImageView
+        android:id="@+id/pet5"
+        android:layout_width="250px"
+        android:layout_height="250px"
+        app:srcCompat="@drawable/pet5"
+        app:layout_constraintEnd_toStartOf="@+id/pet6"
+        app:layout_constraintStart_toEndOf="@+id/pet4"
+        app:layout_constraintTop_toBottomOf="@+id/tituloGatos"
+        />
+    <ImageView
+        android:id="@+id/pet6"
+        android:layout_width="250px"
+        android:layout_height="250px"
+        app:srcCompat="@drawable/pet6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pet5"
+        app:layout_constraintTop_toBottomOf="@+id/tituloGatos"
+        />
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pipoca"
+        android:layout_marginTop="20px"
+        app:layout_constraintEnd_toStartOf="@+id/pet2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pet1" />
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tyler"
+        android:layout_marginTop="20px"
+        app:layout_constraintEnd_toStartOf="@+id/btn3"
+        app:layout_constraintStart_toEndOf="@+id/btn1"
+        app:layout_constraintTop_toBottomOf="@+id/pet2" />
+    <Button
+        android:id="@+id/btn3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Princesa"
+        android:layout_marginTop="20px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn2"
+        app:layout_constraintTop_toBottomOf="@+id/pet3" />
+    <Button
+        android:id="@+id/btn4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Terror"
+        android:layout_marginTop="20px"
+        app:layout_constraintEnd_toStartOf="@+id/pet5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pet4" />
+    <Button
+        android:id="@+id/btn5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Babidi"
+        android:layout_marginTop="20px"
+        app:layout_constraintEnd_toStartOf="@+id/btn6"
+        app:layout_constraintStart_toEndOf="@+id/btn4"
+        app:layout_constraintTop_toBottomOf="@+id/pet5" />
+    <Button
+        android:id="@+id/btn6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aurora"
+        android:layout_marginTop="20px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn5"
+        app:layout_constraintTop_toBottomOf="@+id/pet6" />
+</androidx.constraintlayout.widget.ConstraintLayout>
