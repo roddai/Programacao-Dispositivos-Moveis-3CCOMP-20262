@@ -1,5 +1,6 @@
 package com.example.aula08;
 
+import android.app.assist.AssistStructure;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -18,9 +19,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class FormActivity extends AppCompatActivity {
 
-    private ImageView imageView;
-    private ActivityResultLauncher<String> pickImageLauncher;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,30 +28,18 @@ public class FormActivity extends AppCompatActivity {
         EditText etIdade = findViewById(R.id.etIdade);
         CheckBox cbOpcao1 = findViewById(R.id.cbOpcao1);
         CheckBox cbOpcao2 = findViewById(R.id.cbOpcao2);
-        RadioButton rbSim = findViewById(R.id.rbSim);
-        RadioButton rbNao = findViewById(R.id.rbNao);
-        RadioGroup rgSimNao = findViewById(R.id.rgSimNao);
+        CheckBox cbOpcao3 = findViewById(R.id.cbOpcao3);
+        RadioButton rbP = findViewById(R.id.rbP);
+        RadioButton rbM = findViewById(R.id.rbM);
+        RadioButton rbG = findViewById(R.id.rbG);
         Spinner spinnerCores  = findViewById(R.id.spinnerCores);
         RatingBar ratingBar = findViewById(R.id.ratingBar);
         Button btnEnviar = findViewById(R.id.btnEnviar);
-        Button btnCarregarFoto = findViewById(R.id.btnCarregarFoto);
-        imageView = findViewById(R.id.imageView);
 
-        String[] cores = {"Vermelho", "Azul", "Verde"};
+        String[] cores = {"Vermelho", "Azul", "Verde", "Preto", "Cinza", "Branco"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, cores);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerCores.setAdapter(adapter);
-
-        pickImageLauncher = registerForActivityResult(
-                new ActivityResultContracts.GetContent(),
-                uri -> {
-                    if (uri != null) {
-                        imageView.setImageURI(uri);
-                    }
-                }
-        );
-
-        btnCarregarFoto.setOnClickListener(v -> pickImageLauncher.launch("image/*"));
 
         btnEnviar.setOnClickListener(v -> {
 
@@ -61,10 +47,11 @@ public class FormActivity extends AppCompatActivity {
             String idade = etIdade.getText().toString();
 
             String opcoes = "";
-            if (cbOpcao1.isChecked()) opcoes += "Opção 1 ";
-            if (cbOpcao2.isChecked()) opcoes += "Opção 2";
+            if (cbOpcao1.isChecked()) opcoes += "\nCamiseta ";
+            if (cbOpcao2.isChecked()) opcoes += "\nCalça";
+            if (cbOpcao3.isChecked()) opcoes += "\nJaqueta";
 
-            String simNao = rbSim.isChecked() ? "Sim" : rbNao.isChecked() ? "Não" : "N/A";
+            String tamanho = rbP.isChecked() ? "P" : rbM.isChecked() ? "M" : rbG.isChecked() ? "G": "N/A";
 
             String corSelecionada = spinnerCores.getSelectedItem().toString();
             float avaliacao = ratingBar.getRating();
@@ -72,7 +59,7 @@ public class FormActivity extends AppCompatActivity {
             String resultado = "Nome: " + nome +
                     "\nIdade: " + idade +
                     "\nOpções marcadas: " + opcoes +
-                    "\nEscolha Sim/Não: " + simNao +
+                    "\nEscolha tamanho: " + tamanho +
                     "\nCor escolhida: " + corSelecionada +
                     "\nAvaliação: " + avaliacao;
 
