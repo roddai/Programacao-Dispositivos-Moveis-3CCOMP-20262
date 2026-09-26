@@ -14,10 +14,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button btnProximo = findViewById(R.id.btnProximo);
+
         btnProximo.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, FormActivity.class);
+            Intent intent = new Intent(
+                    MainActivity.this,
+                    FormActivity.class
+            );
+
             startActivity(intent);
         });
     }
 }
-
