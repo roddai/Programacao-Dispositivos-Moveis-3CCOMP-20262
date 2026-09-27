@@ -15,7 +15,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     TextView txtResultado;
-    ImageView imgMaquina, imgPedra, imgPapel, imgTesoura;
+    ImageView imgOpcaoMaquina, imgPedra, imgPapel, imgTesoura;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         txtResultado = findViewById(R.id.txtResultado);
-        imgMaquina = findViewById(R.id.imgMaquina);
+        imgOpcaoMaquina = findViewById(R.id.imgOpcaoMaquina);
         imgPedra = findViewById(R.id.imgPedra);
         imgPapel = findViewById(R.id.imgPapel);
         imgTesoura = findViewById(R.id.imgTesoura);
@@ -41,13 +41,13 @@ public class MainActivity extends AppCompatActivity {
 
         switch (escolhaMaquina) {
             case "pedra":
-                imgMaquina.setImageResource(R.drawable.pedra);
+                imgOpcaoMaquina.setImageResource(R.drawable.pedra);
                 break;
             case "papel":
-                imgMaquina.setImageResource(R.drawable.papel);
+                imgOpcaoMaquina.setImageResource(R.drawable.papel);
                 break;
             case "tesoura":
-                imgMaquina.setImageResource(R.drawable.tesoura);
+                imgOpcaoMaquina.setImageResource(R.drawable.tesoura);
                 break;
         }
 

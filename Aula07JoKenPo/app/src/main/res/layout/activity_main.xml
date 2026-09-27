@@ -26,6 +26,16 @@
         android:src="@drawable/maquina"
         app:layout_constraintTop_toBottomOf="@id/txtTitulo"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imgOpcaoMaquina"
+        android:layout_marginTop="24dp" />
+
+    <ImageView
+        android:id="@+id/imgOpcaoMaquina"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/interrogacao"
+        app:layout_constraintTop_toBottomOf="@id/txtTitulo"
+        app:layout_constraintStart_toEndOf="@id/imgMaquina"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="24dp" />
 
