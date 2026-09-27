@@ -15,7 +15,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     TextView txtResultado;
-    ImageView imgOpcaoMaquina, imgPedra, imgPapel, imgTesoura;
+    ImageView imgPlayer, imgNeo, imgDeo, imgOpcaoMaquina, imgOpcaoPlayer,imgPedra, imgPapel, imgTesoura;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,20 +24,51 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         txtResultado = findViewById(R.id.txtResultado);
+        imgPlayer = findViewById(R.id.imgPlayer);
+        imgNeo = findViewById(R.id.imgNeo);
+        imgDeo = findViewById(R.id.imgDeo);
+        imgOpcaoPlayer = findViewById(R.id.imgOpcaoPlayer);
         imgOpcaoMaquina = findViewById(R.id.imgOpcaoMaquina);
         imgPedra = findViewById(R.id.imgPedra);
         imgPapel = findViewById(R.id.imgPapel);
         imgTesoura = findViewById(R.id.imgTesoura);
+
+        imgNeo.setOnClickListener(v -> personagem("Neo"));
+        imgDeo.setOnClickListener(v -> personagem("Deo"));
 
         imgPedra.setOnClickListener(v -> jogar("pedra"));
         imgPapel.setOnClickListener(v -> jogar("papel"));
         imgTesoura.setOnClickListener(v -> jogar("tesoura"));
     }
 
+    public void personagem(String escolhaPersonagem) {
+        String[] opcoes = {"Neo", "Deo"};
+        switch (escolhaPersonagem) {
+            case "Neo":
+                imgPlayer.setImageResource(R.drawable.neo);
+                break;
+            case "Deo":
+                imgPlayer.setImageResource(R.drawable.deo);
+                break;
+        }
+    }
     public void jogar(String escolhaUsuario) {
         String[] opcoes = {"pedra", "papel", "tesoura"};
+
+        switch (escolhaUsuario){
+            case "pedra":
+                imgOpcaoPlayer.setImageResource(R.drawable.pedra);
+                break;
+            case "papel":
+                imgOpcaoPlayer.setImageResource(R.drawable.papel);
+                break;
+            case "tesoura":
+                imgOpcaoPlayer.setImageResource(R.drawable.tesoura);
+                break;
+        }
         int numero = new Random().nextInt(3);
         String escolhaMaquina = opcoes[numero];
+
 
         switch (escolhaMaquina) {
             case "pedra":

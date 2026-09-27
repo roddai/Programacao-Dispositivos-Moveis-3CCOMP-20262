@@ -39,6 +39,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="24dp" />
 
+    <ImageView
+        android:id="@+id/imgPlayer"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/semfoto"
+        app:layout_constraintTop_toBottomOf="@id/txtResultado"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imgOpcaoPlayer"
+        android:layout_marginTop="24dp" />
+
+    <ImageView
+        android:id="@+id/imgOpcaoPlayer"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/interrogacao"
+        app:layout_constraintTop_toBottomOf="@id/txtResultado"
+        app:layout_constraintStart_toEndOf="@id/imgPlayer"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp" />
+
     <TextView
         android:id="@+id/txtResultado"
         android:layout_width="wrap_content"
@@ -50,13 +70,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="24dp" />
 
+    <TextView
+        android:id="@+id/txtEscolha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escolha um símbolo"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/imgPlayer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp" />
+
     <ImageView
         android:id="@+id/imgPedra"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:src="@drawable/pedra"
         android:contentDescription="Pedra"
-        app:layout_constraintTop_toBottomOf="@id/txtResultado"
+        app:layout_constraintTop_toBottomOf="@id/txtEscolha"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/imgPapel"
         android:layout_marginTop="24dp" />
@@ -67,7 +98,7 @@
         android:layout_height="80dp"
         android:src="@drawable/papel"
         android:contentDescription="Papel"
-        app:layout_constraintTop_toBottomOf="@id/txtResultado"
+        app:layout_constraintTop_toBottomOf="@id/txtEscolha"
         app:layout_constraintStart_toEndOf="@id/imgPedra"
         app:layout_constraintEnd_toStartOf="@id/imgTesoura"
         android:layout_marginTop="24dp" />
@@ -78,8 +109,41 @@
         android:layout_height="80dp"
         android:src="@drawable/tesoura"
         android:contentDescription="Tesoura"
-        app:layout_constraintTop_toBottomOf="@id/txtResultado"
+        app:layout_constraintTop_toBottomOf="@id/txtEscolha"
         app:layout_constraintStart_toEndOf="@id/imgPapel"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        android:id="@+id/txtEscolhaP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escolha seu persongagem"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/imgPapel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp" />
+
+    <ImageView
+        android:id="@+id/imgNeo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/neo"
+        android:contentDescription="Neo"
+        app:layout_constraintTop_toBottomOf="@id/txtEscolhaP"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imgDeo"
+        android:layout_marginTop="24dp" />
+
+    <ImageView
+        android:id="@+id/imgDeo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/deo"
+        android:contentDescription="Deo"
+        app:layout_constraintTop_toBottomOf="@id/txtEscolhaP"
+        app:layout_constraintStart_toEndOf="@id/imgNeo"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="24dp" />
 
