@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -27,16 +28,18 @@ public class FormActivity extends AppCompatActivity {
 
         EditText etNome = findViewById(R.id.etNome);
         EditText etIdade = findViewById(R.id.etIdade);
-        CheckBox cbOpcao1 = findViewById(R.id.cbOpcao1);
-        CheckBox cbOpcao2 = findViewById(R.id.cbOpcao2);
-        RadioButton rbSim = findViewById(R.id.rbSim);
-        RadioButton rbNao = findViewById(R.id.rbNao);
-        RadioGroup rgSimNao = findViewById(R.id.rgSimNao);
-        Spinner   = findViewById(R.id.spinnerCores);
+        RadioButton rbP = findViewById(R.id.rbP);
+        RadioButton rbM = findViewById(R.id.rbM);
+        RadioButton rbG = findViewById(R.id.rbG);
+        RadioGroup rgTamanhos = findViewById(R.id.rgTamanhos);
+        CheckBox cbCamiseta = findViewById(R.id.cbCamiseta);
+        CheckBox cbCalca = findViewById(R.id.cbCalca);
+        CheckBox cbJaqueta = findViewById(R.id.cbJaqueta);
+
+
+        Spinner spinnerCores = findViewById(R.id.spinnerCores);
         RatingBar ratingBar = findViewById(R.id.ratingBar);
         Button btnEnviar = findViewById(R.id.btnEnviar);
-        Button btnCarregarFoto = findViewById(R.id.btnCarregarFoto);
-        imageView = findViewById(R.id.imageView);
 
         String[] cores = {"Vermelho", "Azul", "Verde"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, cores);
@@ -52,27 +55,27 @@ public class FormActivity extends AppCompatActivity {
                 }
         );
 
-        btnCarregarFoto.setOnClickListener(v -> pickImageLauncher.launch("image/*"));
-
         btnEnviar.setOnClickListener(v -> {
 
             String nome = etNome.getText().toString();
             String idade = etIdade.getText().toString();
 
-            String opcoes = "";
-            if (cbOpcao1.isChecked()) opcoes += "Opção 1 ";
-            if (cbOpcao2.isChecked()) opcoes += "Opção 2";
-
-            String simNao = rbSim.isChecked() ? "Sim" : rbNao.isChecked() ? "Não" : "N/A";
+            String Tamanhos = rbP.isChecked() ? "P" : rbM.isChecked() ? "M" : rbG.isChecked() ? "G" : "N/A";
 
             String corSelecionada = spinnerCores.getSelectedItem().toString();
+
+            String opcoes = "";
+            if (cbCamiseta.isChecked()) opcoes += "Camiseta ";
+            if (cbCalca.isChecked()) opcoes += "Calça";
+            if (cbJaqueta.isChecked()) opcoes += "Jaqueta";
+
             float avaliacao = ratingBar.getRating();
 
             String resultado = "Nome: " + nome +
                     "\nIdade: " + idade +
-                    "\nOpções marcadas: " + opcoes +
-                    "\nEscolha Sim/Não: " + simNao +
+                    "\nEscolha Tamanhos: " + Tamanhos +
                     "\nCor escolhida: " + corSelecionada +
+                    "\nOpções marcadas: " + opcoes +
                     "\nAvaliação: " + avaliacao;
 
             Intent intent = new Intent(FormActivity.this, ResultadoActivity.class);

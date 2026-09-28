@@ -41,50 +41,66 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="8dp"/>
 
-        <CheckBox
-            android:id="@+id/cbOpcao1"
+        <RadioGroup
+            android:id="@+id/rgTamanhos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/checkbox_opcao1"
             app:layout_constraintTop_toBottomOf="@id/etIdade"
+            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <RadioButton
+                android:id="@+id/rbP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radio_P"/>
+
+            <RadioButton
+                android:id="@+id/rbM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radio_M"/>
+
+            <RadioButton
+                android:id="@+id/rbG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radio_G"/>
+        </RadioGroup>
+
+        <CheckBox
+            android:id="@+id/cbCamiseta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/checkbox_camiseta"
+            app:layout_constraintTop_toBottomOf="@id/spinnerCores"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="8dp"/>
 
         <CheckBox
-            android:id="@+id/cbOpcao2"
+            android:id="@+id/cbCalca"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/checkbox_opcao2"
-            app:layout_constraintTop_toBottomOf="@id/cbOpcao1"
+            android:text="@string/checkbox_calca"
+            app:layout_constraintTop_toBottomOf="@id/spinnerCores"
+            app:layout_constraintStart_toEndOf="@id/cbCamiseta"
+            android:layout_marginTop="8dp"/>
+
+        <CheckBox
+            android:id="@+id/cbJaqueta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/checkbox_jaqueta"
+            app:layout_constraintTop_toBottomOf="@id/cbCamiseta"
             app:layout_constraintStart_toStartOf="parent"/>
-
-        <RadioGroup
-            android:id="@+id/rgSimNao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/cbOpcao2"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="8dp">
-
-            <RadioButton
-                android:id="@+id/rbSim"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/radio_sim"/>
-
-            <RadioButton
-                android:id="@+id/rbNao"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/radio_nao"/>
-        </RadioGroup>
 
         <TextView
             android:id="@+id/tvSpinnerLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/spinner_label"
-            app:layout_constraintTop_toBottomOf="@id/rgSimNao"
+            app:layout_constraintTop_toBottomOf="@id/rgTamanhos"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="12dp"/>
 
@@ -97,32 +113,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="4dp"/>
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="12dp"
-            android:contentDescription="Imagem selecionada"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_foreground"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spinnerCores" />
-
-        <Button
-            android:id="@+id/btnCarregarFoto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Carregar Foto"
-            app:layout_constraintTop_toBottomOf="@id/imageView"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="8dp"/>
 
         <TextView
             android:id="@+id/tvRatingLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/avaliacao_label"
-            app:layout_constraintTop_toBottomOf="@id/btnCarregarFoto"
+            app:layout_constraintTop_toBottomOf="@id/cbJaqueta"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="12dp"/>
 

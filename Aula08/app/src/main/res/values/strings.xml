@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Aula 08</string>
+    <string name="main_title">Escolha de Roupas</string>
+    <string name="btn_proximo">Enviar</string>
+    <string name="radio_P">P</string>
+    <string name="radio_M">M</string>
+    <string name="radio_G">G</string>
+    <string name="form_title">Formulário</string>
+    <string name="nome_hint">Digite seu nome</string>
+    <string name="idade_hint">Digite sua idade</string>
+    <string name="checkbox_camiseta">Camiseta</string>
+    <string name="checkbox_calca">Calça</string>
+    <string name="checkbox_jaqueta">Jaqueta</string>
+    <string name="spinner_label">Escolha uma cor</string>
+    <string name="avaliacao_label">Avalie o atendimento</string>
+    <string name="resultado_title">Resultado</string>
+    <string name="btn_voltar">Voltar</string>
 </resources>
