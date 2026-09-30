@@ -22,6 +22,11 @@
         </activity>
         <activity android:name=".ResultadoAbaixoDoPesoActivity"/>
         <activity android:name=".ResultadoObesidadeClasse2"/>
+        <activity android:name=".ResultadoNormalActivity" android:exported="false"/>
+        <activity android:name=".ResultadoSobrepesoActivity" android:exported="false"/>
+        <activity android:name=".ResultadoObesidadeClasse1Activity" android:exported="false"/>
+        <activity android:name=".ResultadoObesidadeClasse2Activity" android:exported="false"/>
+        <activity android:name=".ResultadoObesidadeClasse3Activity" android:exported="false"/>
     </application>
 
 </manifest>

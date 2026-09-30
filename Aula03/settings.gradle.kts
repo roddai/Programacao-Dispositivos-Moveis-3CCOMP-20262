@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "App FECAP"
+rootProject.name = "Aula 03 — Interface FECAP"
 include(":app")

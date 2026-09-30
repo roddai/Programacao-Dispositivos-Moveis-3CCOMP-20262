@@ -36,7 +36,7 @@
         android:layout_marginTop="20dp"
         android:inputType="numberPassword"
         android:maxLength="8"
-        android:text="Digite sua senha aqui"
+        android:hint="Digite sua senha aqui"
         android:textStyle="italic"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
