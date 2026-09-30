@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true">
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Resultado do cálculo" android:textSize="18sp" android:layout_marginBottom="16dp" /><TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Obesidade — classe III" android:textSize="18sp" android:layout_marginBottom="16dp" /><TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="" android:textSize="18sp" android:layout_marginBottom="16dp" android:id="@+id/valorImc"/><TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Exercício de programação: o resultado não substitui avaliação profissional." android:textSize="18sp" android:layout_marginBottom="16dp" /><Button android:id="@+id/btnVoltar" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Voltar ao cálculo"/>
+</LinearLayout>
+</ScrollView>
