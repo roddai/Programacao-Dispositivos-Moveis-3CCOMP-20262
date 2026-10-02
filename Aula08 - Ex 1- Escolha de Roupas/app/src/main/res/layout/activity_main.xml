@@ -11,7 +11,7 @@
         android:id="@+id/MainTitulo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Escolha Fashion bb"
+        android:text="Fashion Choice"
         android:textSize="44sp"
         android:textStyle="bold"
         android:gravity="center"
