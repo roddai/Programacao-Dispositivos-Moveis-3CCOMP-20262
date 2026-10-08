@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Aula08</string>
+    <string name="form_title">Formulário</string>
+    <string name="nome_hint">Digite seu nome</string>
+    <string name="idade_hint">Digite sua idade</string>
+    <string name="checkbox_opcao1">Camiseta</string>
+    <string name="checkbox_opcao2">Calça</string>
+    <string name="checkbox_opcao3">Jaqueta</string>
+    <string name="radio_pequeno">P</string>
+    <string name="radio_medio">M</string>
+    <string name="radio_grande">G</string>
+    <string name="spinner_label">Escolha uma cor</string>
+    <string name="avaliacao_label">Avalie o antendimento</string>
+    <string name="btn_proximo">Próximo</string>
+    <string name="btn_enviar">Enviar</string>
+    <string name="main_title">Início</string>
+    <string name="resultado_title">Resultado</string>
+    <string name="btn_voltar">Voltar</string>
+</resources>
