@@ -12,12 +12,17 @@ Este é o repositório da disciplina **Programação de Dispositivos Móveis**.
 
 ## 📂 Estrutura do projeto
 
+Cada aula é um projeto Android independente (Gradle próprio), organizado em pastas `AulaXX`:
+
+- `Aula01` a `Aula09` — exercícios e entregas de cada aula da disciplina.
+
 ## 🔗 Link do repositório original do professor
 ([Link do repositório](https://github.com/roddai/Programacao-Dispositivos-Moveis-3CCOMP-20262))
 
 ## 📷 Screenshot
 
 ## 📦 APK
-O APK de projetos pode ser encontrado na pasta `app/build/outputs/apk/debug/`
+O APK de cada projeto pode ser gerado a partir da respectiva pasta `AulaXX`,
+em `AulaXX/app/build/outputs/apk/debug/` após o build.
 
 ---
