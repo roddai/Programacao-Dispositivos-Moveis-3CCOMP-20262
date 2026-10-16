@@ -3,8 +3,8 @@
 Este é o repositório da disciplina **Programação de Dispositivos Móveis**.
 
 ## 👨‍💻 Desenvolvedor
-- Nome: Rodrigo da Rosa
-- RA: xxxxxxxxxxxxx
+- Nome: Lucas de Carvalho Carretero
+- RA: 26029787
 - Curso: CCOMP – 3º Semestre
 
 ## 📅 Data
