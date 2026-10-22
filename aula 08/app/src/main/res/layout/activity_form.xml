@@ -1,0 +1,150 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvFormTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Titulo"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <EditText
+            android:id="@+id/etNome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Nome"
+            app:layout_constraintTop_toBottomOf="@id/tvFormTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="12dp"/>
+
+        <EditText
+            android:id="@+id/etIdade"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Idade"
+            android:inputType="number"
+            app:layout_constraintTop_toBottomOf="@id/etNome"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"/>
+
+        <CheckBox
+            android:id="@+id/cbOpcao1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opção 1"
+            app:layout_constraintTop_toBottomOf="@id/etIdade"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"/>
+
+        <CheckBox
+            android:id="@+id/cbOpcao2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opção 2"
+            app:layout_constraintTop_toBottomOf="@id/cbOpcao1"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <RadioGroup
+            android:id="@+id/rgSimNao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/cbOpcao2"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp">
+
+            <RadioButton
+                android:id="@+id/rbSim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sim"/>
+
+            <RadioButton
+                android:id="@+id/rbNao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Não"/>
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tvSpinnerLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Escolha"
+            app:layout_constraintTop_toBottomOf="@id/rgSimNao"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="12dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerCores"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvSpinnerLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="4dp"/>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="12dp"
+            android:contentDescription="Imagem selecionada"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_foreground"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spinnerCores" />
+
+        <Button
+            android:id="@+id/btnCarregarFoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Carregar Foto"
+            app:layout_constraintTop_toBottomOf="@id/imageView"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/tvRatingLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Avaliação"
+            app:layout_constraintTop_toBottomOf="@id/btnCarregarFoto"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="12dp"/>
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="1"
+            app:layout_constraintTop_toBottomOf="@id/tvRatingLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="4dp"/>
+
+        <Button
+            android:id="@+id/btnEnviar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Proximo"
+            app:layout_constraintTop_toBottomOf="@id/ratingBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
