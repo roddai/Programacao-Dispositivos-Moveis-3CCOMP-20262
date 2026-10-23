@@ -2,6 +2,16 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Aula_10" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/primary_vivid</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/text_title</item>
+
+        <item name="colorSecondary">@color/secondary_vivid</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <item name="colorTertiary">@color/tertiary_vivid</item>
+
+        <item name="android:windowBackground">#1A1A1A</item>
+        <item name="colorSurface">#2D2D2D</item>
     </style>
 </resources>

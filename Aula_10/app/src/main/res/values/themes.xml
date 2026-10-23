@@ -2,7 +2,18 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Aula_10" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/primary_vivid</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/primary_container_vivid</item>
+
+        <item name="colorSecondary">@color/secondary_vivid</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/secondary_container_vivid</item>
+
+        <item name="colorTertiary">@color/tertiary_vivid</item>
+
+        <item name="android:windowBackground">@color/background_vivid</item>
+        <item name="colorSurface">@color/surface_vivid</item>
     </style>
 
     <style name="Theme.Aula_10" parent="Base.Theme.Aula_10" />

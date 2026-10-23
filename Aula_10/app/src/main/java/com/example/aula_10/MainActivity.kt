@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -18,8 +19,17 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var etCep: TextInputEditText
     private lateinit var btnSearch: MaterialButton
-    private lateinit var tvResult: TextView
+    private lateinit var tilNumero: TextInputLayout
+    private lateinit var etNumero: TextInputEditText
+    private lateinit var tilComplemento: TextInputLayout
+    private lateinit var etComplemento: TextInputEditText
+    
     private lateinit var cardResult: MaterialCardView
+    private lateinit var tvLogradouro: TextView
+    private lateinit var tvBairro: TextView
+    private lateinit var tvCidadeUf: TextView
+    private lateinit var tvRegiao: TextView
+    private lateinit var tvDdd: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,10 +37,19 @@ class MainActivity : AppCompatActivity() {
 
         etCep = findViewById(R.id.etCep)
         btnSearch = findViewById(R.id.btnSearch)
-        tvResult = findViewById(R.id.tvResult)
+        
+        tilNumero = findViewById(R.id.tilNumero)
+        etNumero = findViewById(R.id.etNumero)
+        tilComplemento = findViewById(R.id.tilComplemento)
+        etComplemento = findViewById(R.id.etComplemento)
+        
         cardResult = findViewById(R.id.cardResult)
+        tvLogradouro = findViewById(R.id.tvLogradouro)
+        tvBairro = findViewById(R.id.tvBairro)
+        tvCidadeUf = findViewById(R.id.tvCidadeUf)
+        tvRegiao = findViewById(R.id.tvRegiao)
+        tvDdd = findViewById(R.id.tvDdd)
 
-        // Alterado para http para evitar erro de certificado SSL em alguns emuladores/redes
         val retrofit = Retrofit.Builder()
             .baseUrl("http://viacep.com.br/ws/")
             .addConverterFactory(GsonConverterFactory.create())
@@ -57,7 +76,7 @@ class MainActivity : AppCompatActivity() {
                         if (cepResponse.erro == true) {
                             showError("CEP não encontrado.")
                         } else {
-                            showResult(cepResponse.logradouro ?: "Logradouro não disponível")
+                            showResult(cepResponse)
                         }
                     } else {
                         showError("Erro ao processar resposta.")
@@ -73,12 +92,27 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun showResult(logradouro: String) {
-        tvResult.text = logradouro
+    private fun showResult(cep: CepResponse) {
+        tvLogradouro.text = "Logradouro: ${cep.logradouro ?: "N/A"}"
+        tvBairro.text = "Bairro: ${cep.bairro ?: "N/A"}"
+        tvCidadeUf.text = "Cidade: ${cep.localidade ?: "N/A"} - ${cep.uf ?: "N/A"}"
+        tvRegiao.text = "Região: ${cep.regiao ?: "N/A"}"
+        tvDdd.text = "DDD: ${cep.ddd ?: "N/A"}"
+        
+        if (!cep.complemento.isNullOrBlank() && etComplemento.text.isNullOrBlank()) {
+            etComplemento.setText(cep.complemento)
+        }
+
+        // Faz os campos de Número, Complemento e o Card de resultado aparecerem
+        tilNumero.visibility = View.VISIBLE
+        tilComplemento.visibility = View.VISIBLE
         cardResult.visibility = View.VISIBLE
     }
 
     private fun showError(message: String) {
+        // Esconde os campos caso ocorra um erro ou busca inválida
+        tilNumero.visibility = View.GONE
+        tilComplemento.visibility = View.GONE
         cardResult.visibility = View.GONE
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }

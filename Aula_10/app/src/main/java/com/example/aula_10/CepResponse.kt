@@ -7,6 +7,8 @@ data class CepResponse(
     val bairro: String?,
     val localidade: String?,
     val uf: String?,
+    val estado: String?,
+    val regiao: String?,
     val ibge: String?,
     val gia: String?,
     val ddd: String?,
