@@ -38,16 +38,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+
+        // Corrigindo o enquadramento: somamos os Insets do sistema ao padding original do layout (24dp)
+        // Isso remove a sensação de que as coisas estão "coladas" na borda ou com zoom.
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.scrollContainer), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            float density = getResources().getDisplayMetrics().density;
+            int paddingBase = (int) (24 * density);
+            v.setPadding(
+                    systemBars.left + paddingBase,
+                    systemBars.top + paddingBase,
+                    systemBars.right + paddingBase,
+                    systemBars.bottom + paddingBase
+            );
             return insets;
         });
 
         // Inicialização dos campos
         etCep = findViewById(R.id.etCep);
         btnBuscar = findViewById(R.id.btnBuscar);
-        
         tvCepResult = findViewById(R.id.tvCepResult);
         tvLogradouro = findViewById(R.id.tvLogradouro);
         tvComplemento = findViewById(R.id.tvComplemento);
@@ -58,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
         tvRegiao = findViewById(R.id.tvRegiao);
         tvDdd = findViewById(R.id.tvDdd);
 
-        // Retrofit com SSL inseguro para rede da faculdade
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://viacep.com.br/")
                 .client(getUnsafeOkHttpClient())
@@ -102,7 +110,8 @@ public class MainActivity extends AppCompatActivity {
     private void exibirDados(Cep cep, String cepOriginal) {
         tvCepResult.setText(cepOriginal);
         tvLogradouro.setText(cep.getLogradouro());
-        tvComplemento.setText(cep.getComplemento());
+        // O campo complemento deve ficar em branco para o usuário digitar, ignorando o que vem da API
+        tvComplemento.setText(""); 
         tvBairro.setText(cep.getBairro());
         tvLocalidade.setText(cep.getLocalidade());
         tvUf.setText(cep.getUf());
@@ -127,12 +136,9 @@ public class MainActivity extends AppCompatActivity {
         try {
             final TrustManager[] trustAllCerts = new TrustManager[]{
                     new X509TrustManager() {
-                        @Override
-                        public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {}
-                        @Override
-                        public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {}
-                        @Override
-                        public X509Certificate[] getAcceptedIssuers() { return new X509Certificate[]{}; }
+                        @Override public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {}
+                        @Override public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {}
+                        @Override public X509Certificate[] getAcceptedIssuers() { return new X509Certificate[]{}; }
                     }
             };
             final SSLContext sslContext = SSLContext.getInstance("SSL");
