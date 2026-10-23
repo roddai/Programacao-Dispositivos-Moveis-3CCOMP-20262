@@ -1,12 +1,13 @@
 package com.example.aula10;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.widget.NestedScrollView;
 
 import java.security.cert.CertificateException;
 
@@ -24,9 +25,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText editTextCep;
+    private EditText editTextCepBusca;
     private Button buttonBuscar;
-    private TextView textViewLogradouro;
+    private NestedScrollView nestedScrollView;
+    
+    // Campos de resultado
+    private EditText editResCep, editResLogradouro, editResComplemento, editResBairro, 
+                     editResLocalidade, editResUf, editResRegiao, editResDdd, editResEstado;
+
     private ViaCepService viaCepService;
 
     @Override
@@ -34,11 +40,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        editTextCep = findViewById(R.id.editTextCep);
+        // Inicialização dos componentes de busca
+        editTextCepBusca = findViewById(R.id.editTextCep);
         buttonBuscar = findViewById(R.id.buttonBuscar);
-        textViewLogradouro = findViewById(R.id.textViewLogradouro);
+        nestedScrollView = findViewById(R.id.nestedScrollView);
 
-        // Configura Retrofit com um cliente OkHttp que ignora erros de SSL (comum em redes de faculdade)
+        // Inicialização dos componentes de resultado
+        editResCep = findViewById(R.id.editTextCepResult);
+        editResLogradouro = findViewById(R.id.editTextLogradouro);
+        editResComplemento = findViewById(R.id.editTextComplemento);
+        editResBairro = findViewById(R.id.editTextBairro);
+        editResLocalidade = findViewById(R.id.editTextLocalidade);
+        editResUf = findViewById(R.id.editTextUf);
+        editResRegiao = findViewById(R.id.editTextRegiao);
+        editResDdd = findViewById(R.id.editTextDdd);
+        editResEstado = findViewById(R.id.editTextEstado);
+
+        // Configura Retrofit
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://viacep.com.br/")
                 .client(getUnsafeOkHttpClient())
@@ -48,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         viaCepService = retrofit.create(ViaCepService.class);
 
         buttonBuscar.setOnClickListener(v -> {
-            String cep = editTextCep.getText().toString();
+            String cep = editTextCepBusca.getText().toString();
             if (cep.length() == 8) {
                 buscarCep(cep);
             } else {
@@ -63,26 +81,38 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<CepResponse> call, Response<CepResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    CepResponse cepResponse = response.body();
-                    if (cepResponse.getLogradouro() != null) {
-                        textViewLogradouro.setText(cepResponse.getLogradouro());
+                    CepResponse res = response.body();
+                    
+                    if (res.getLogradouro() != null || res.getLocalidade() != null) {
+                        // Preenche os campos
+                        editResCep.setText(cep);
+                        editResLogradouro.setText(res.getLogradouro());
+                        editResComplemento.setText(res.getComplemento());
+                        editResBairro.setText(res.getBairro());
+                        editResLocalidade.setText(res.getLocalidade());
+                        editResUf.setText(res.getUf());
+                        editResRegiao.setText(res.getRegiao());
+                        editResDdd.setText(res.getDdd());
+                        editResEstado.setText(res.getEstado());
+
+                        // Mostra o formulário de resultados
+                        nestedScrollView.setVisibility(View.VISIBLE);
                     } else {
-                        textViewLogradouro.setText("CEP não encontrado");
+                        Toast.makeText(MainActivity.this, "CEP não encontrado", Toast.LENGTH_SHORT).show();
+                        nestedScrollView.setVisibility(View.GONE);
                     }
                 } else {
-                    textViewLogradouro.setText("Erro na consulta");
+                    Toast.makeText(MainActivity.this, "Erro na consulta", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<CepResponse> call, Throwable t) {
-                textViewLogradouro.setText("Erro de conexão: " + t.getMessage());
+                Toast.makeText(MainActivity.this, "Erro de conexão: " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }
 
-    // Método para ignorar a verificação de certificados SSL
-    // Apenas para ambiente de desenvolvimento/estudo em redes restritas
     private static OkHttpClient getUnsafeOkHttpClient() {
         try {
             final TrustManager[] trustAllCerts = new TrustManager[]{
@@ -97,16 +127,12 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
             };
-
             final SSLContext sslContext = SSLContext.getInstance("SSL");
             sslContext.init(null, trustAllCerts, new java.security.SecureRandom());
-            final SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
-
-            OkHttpClient.Builder builder = new OkHttpClient.Builder();
-            builder.sslSocketFactory(sslSocketFactory, (X509TrustManager) trustAllCerts[0]);
-            builder.hostnameVerifier((hostname, session) -> true);
-
-            return builder.build();
+            return new OkHttpClient.Builder()
+                    .sslSocketFactory(sslContext.getSocketFactory(), (X509TrustManager) trustAllCerts[0])
+                    .hostnameVerifier((hostname, session) -> true)
+                    .build();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

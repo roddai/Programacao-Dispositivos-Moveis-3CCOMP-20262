@@ -15,10 +15,42 @@ public class CepResponse {
     private String localidade;
     @SerializedName("uf")
     private String uf;
+    @SerializedName("estado")
+    private String estado;
+    @SerializedName("regiao")
+    private String regiao;
+    @SerializedName("ddd")
+    private String ddd;
 
     public String getLogradouro() {
         return logradouro;
     }
 
-    // Add other getters if needed, but for now logradouro is enough
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public String getLocalidade() {
+        return localidade;
+    }
+
+    public String getUf() {
+        return uf;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public String getRegiao() {
+        return regiao;
+    }
+
+    public String getDdd() {
+        return ddd;
+    }
 }
