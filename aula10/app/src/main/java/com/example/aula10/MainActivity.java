@@ -2,7 +2,6 @@ package com.example.aula10;
 
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -30,9 +29,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextInputEditText etCep;
+    private TextInputEditText etCep, tvCepResult, tvLogradouro, tvComplemento, tvBairro, tvLocalidade, tvUf, tvEstado, tvRegiao, tvDdd;
     private Button btnBuscar;
-    private TextView tvLogradouro;
     private ViaCepService service;
 
     @Override
@@ -46,11 +44,21 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        // Inicialização dos campos
         etCep = findViewById(R.id.etCep);
         btnBuscar = findViewById(R.id.btnBuscar);
+        
+        tvCepResult = findViewById(R.id.tvCepResult);
         tvLogradouro = findViewById(R.id.tvLogradouro);
+        tvComplemento = findViewById(R.id.tvComplemento);
+        tvBairro = findViewById(R.id.tvBairro);
+        tvLocalidade = findViewById(R.id.tvLocalidade);
+        tvUf = findViewById(R.id.tvUf);
+        tvEstado = findViewById(R.id.tvEstado);
+        tvRegiao = findViewById(R.id.tvRegiao);
+        tvDdd = findViewById(R.id.tvDdd);
 
-        // Configuração do Retrofit com cliente que ignora SSL para redes com Proxy/Faculdade
+        // Retrofit com SSL inseguro para rede da faculdade
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://viacep.com.br/")
                 .client(getUnsafeOkHttpClient())
@@ -64,36 +72,57 @@ public class MainActivity extends AppCompatActivity {
             if (cepStr.length() == 8) {
                 buscarCep(cepStr);
             } else {
-                Toast.makeText(this, "Por favor, digite um CEP válido com 8 dígitos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "CEP inválido", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     private void buscarCep(String cepStr) {
-        tvLogradouro.setText("Buscando...");
+        limparCampos();
         service.buscarCep(cepStr).enqueue(new Callback<Cep>() {
             @Override
             public void onResponse(Call<Cep> call, Response<Cep> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     Cep cep = response.body();
-                    if (cep.getLogradouro() != null && !cep.getLogradouro().isEmpty()) {
-                        tvLogradouro.setText("Logradouro: " + cep.getLogradouro());
+                    if (cep.getLogradouro() != null) {
+                        exibirDados(cep, cepStr);
                     } else {
-                        tvLogradouro.setText("CEP não encontrado.");
+                        Toast.makeText(MainActivity.this, "CEP não encontrado", Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    tvLogradouro.setText("Erro na busca.");
                 }
             }
 
             @Override
             public void onFailure(Call<Cep> call, Throwable t) {
-                tvLogradouro.setText("Erro de conexão (SSL): Verifique o Wi-Fi.");
+                Toast.makeText(MainActivity.this, "Erro de rede", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    // Método para ignorar a validação de certificados SSL (Apenas para desenvolvimento)
+    private void exibirDados(Cep cep, String cepOriginal) {
+        tvCepResult.setText(cepOriginal);
+        tvLogradouro.setText(cep.getLogradouro());
+        tvComplemento.setText(cep.getComplemento());
+        tvBairro.setText(cep.getBairro());
+        tvLocalidade.setText(cep.getLocalidade());
+        tvUf.setText(cep.getUf());
+        tvEstado.setText(cep.getEstado());
+        tvRegiao.setText(cep.getRegiao());
+        tvDdd.setText(cep.getDdd());
+    }
+
+    private void limparCampos() {
+        tvCepResult.setText("");
+        tvLogradouro.setText("");
+        tvComplemento.setText("");
+        tvBairro.setText("");
+        tvLocalidade.setText("");
+        tvUf.setText("");
+        tvEstado.setText("");
+        tvRegiao.setText("");
+        tvDdd.setText("");
+    }
+
     private static OkHttpClient getUnsafeOkHttpClient() {
         try {
             final TrustManager[] trustAllCerts = new TrustManager[]{
@@ -103,23 +132,15 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {}
                         @Override
-                        public X509Certificate[] getAcceptedIssuers() {
-                            return new X509Certificate[]{};
-                        }
+                        public X509Certificate[] getAcceptedIssuers() { return new X509Certificate[]{}; }
                     }
             };
-
             final SSLContext sslContext = SSLContext.getInstance("SSL");
             sslContext.init(null, trustAllCerts, new java.security.SecureRandom());
-            final SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
-
-            OkHttpClient.Builder builder = new OkHttpClient.Builder();
-            builder.sslSocketFactory(sslSocketFactory, (X509TrustManager) trustAllCerts[0]);
-            builder.hostnameVerifier((hostname, session) -> true);
-
-            return builder.build();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+            return new OkHttpClient.Builder()
+                    .sslSocketFactory(sslContext.getSocketFactory(), (X509TrustManager) trustAllCerts[0])
+                    .hostnameVerifier((hostname, session) -> true)
+                    .build();
+        } catch (Exception e) { throw new RuntimeException(e); }
     }
 }
