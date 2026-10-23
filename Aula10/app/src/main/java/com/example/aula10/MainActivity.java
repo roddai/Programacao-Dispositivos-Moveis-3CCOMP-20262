@@ -12,7 +12,6 @@ import androidx.core.widget.NestedScrollView;
 import java.security.cert.CertificateException;
 
 import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
@@ -31,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     
     // Campos de resultado
     private EditText editResCep, editResLogradouro, editResComplemento, editResBairro, 
-                     editResLocalidade, editResUf, editResRegiao, editResDdd, editResEstado;
+                     editResLocalidade, editResUf, editResRegiao, editResDdd, editResEstado, editResNumero;
 
     private ViaCepService viaCepService;
 
@@ -48,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         // Inicialização dos componentes de resultado
         editResCep = findViewById(R.id.editTextCepResult);
         editResLogradouro = findViewById(R.id.editTextLogradouro);
+        editResNumero = findViewById(R.id.editTextNumero);
         editResComplemento = findViewById(R.id.editTextComplemento);
         editResBairro = findViewById(R.id.editTextBairro);
         editResLocalidade = findViewById(R.id.editTextLocalidade);
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         editResDdd = findViewById(R.id.editTextDdd);
         editResEstado = findViewById(R.id.editTextEstado);
 
-        // Configura Retrofit
+        // Configura Retrofit com cliente inseguro para redes restritas
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://viacep.com.br/")
                 .client(getUnsafeOkHttpClient())
@@ -84,10 +84,9 @@ public class MainActivity extends AppCompatActivity {
                     CepResponse res = response.body();
                     
                     if (res.getLogradouro() != null || res.getLocalidade() != null) {
-                        // Preenche os campos
+                        // Preenche apenas campos que o usuário não deve editar
                         editResCep.setText(cep);
                         editResLogradouro.setText(res.getLogradouro());
-                        editResComplemento.setText(res.getComplemento());
                         editResBairro.setText(res.getBairro());
                         editResLocalidade.setText(res.getLocalidade());
                         editResUf.setText(res.getUf());
@@ -95,7 +94,11 @@ public class MainActivity extends AppCompatActivity {
                         editResDdd.setText(res.getDdd());
                         editResEstado.setText(res.getEstado());
 
-                        // Mostra o formulário de resultados
+                        // Limpa os campos de Número e Complemento para o usuário digitar manualmente
+                        editResNumero.setText("");
+                        editResComplemento.setText("");
+
+                        // Mostra a área de resultados
                         nestedScrollView.setVisibility(View.VISIBLE);
                     } else {
                         Toast.makeText(MainActivity.this, "CEP não encontrado", Toast.LENGTH_SHORT).show();

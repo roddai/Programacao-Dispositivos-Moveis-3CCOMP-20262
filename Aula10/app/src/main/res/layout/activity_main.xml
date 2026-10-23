@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="8dp"/>
 
-    <!-- Campo de Busca com Lupa Bem Afastada -->
+    <!-- Campo de Busca -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutCep"
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
@@ -58,7 +58,7 @@
         android:text="buscar CEP"
         app:layout_constraintTop_toBottomOf="@id/textInputLayoutCep" />
 
-    <!-- Área de Resultados organizada em formulário -->
+    <!-- Área de Resultados (Organizada como formulário) -->
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
@@ -73,7 +73,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="32dp">
+            android:paddingBottom="48dp">
 
             <!-- CEP -->
             <com.google.android.material.textfield.TextInputLayout
@@ -96,7 +96,7 @@
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="32dp"
                 android:hint="Logradouro"
                 app:layout_constraintTop_toBottomOf="@id/layoutCepRes">
                 <com.google.android.material.textfield.TextInputEditText
@@ -112,7 +112,7 @@
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="8dp"
                 android:hint="Número"
                 app:layout_constraintEnd_toStartOf="@+id/layoutComplemento"
@@ -150,7 +150,7 @@
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="32dp"
                 android:hint="Bairro"
                 app:layout_constraintTop_toBottomOf="@id/layoutNumero">
                 <com.google.android.material.textfield.TextInputEditText
@@ -166,7 +166,7 @@
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="8dp"
                 android:hint="Cidade"
                 app:layout_constraintEnd_toStartOf="@+id/layoutUf"
@@ -204,7 +204,7 @@
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="8dp"
                 android:hint="Região"
                 app:layout_constraintEnd_toStartOf="@+id/layoutDdd"
@@ -242,9 +242,11 @@
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="32dp"
                 android:hint="Estado"
-                app:layout_constraintTop_toBottomOf="@id/layoutRegiao">
+                app:layout_constraintTop_toBottomOf="@id/layoutRegiao"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editTextEstado"
                     android:layout_width="match_parent"
