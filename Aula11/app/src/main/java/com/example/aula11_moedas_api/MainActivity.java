@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         // Executando a requisição HTTP em background com ExecutorService
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(() -> {
+            // Monta dinamicamente a URL da API conforme a moeda base selecionada
             String urlString = "https://api.exchangerate-api.com/v4/latest/" + baseCurrency;
             StringBuilder response = new StringBuilder();
 
@@ -92,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 URL url = new URL(urlString);
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("GET");
-                connection.setConnectTimeout(8000);
+                connection.setConnectTimeout(8000); // Aumentado para 8 segundos para redes lentas
                 connection.setReadTimeout(8000);
 
                 int responseCode = connection.getResponseCode();
@@ -106,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     reader.close();
 
+                    // Retorna o resultado para a Thread Principal para atualizar a UI
                     runOnUiThread(() -> parseAndDisplayResult(response.toString(), baseCurrency, amount));
                 } else {
                     // Captura o corpo do erro retornado pelo servidor (caso exista)
@@ -133,14 +135,17 @@ public class MainActivity extends AppCompatActivity {
             JSONObject jsonObject = new JSONObject(jsonStr);
             JSONObject rates = jsonObject.getJSONObject("rates");
 
+            // Extraindo cotações para BRL, USD e EUR
             double rateBrl = rates.optDouble("BRL", 0.0);
             double rateUsd = rates.optDouble("USD", 0.0);
             double rateEur = rates.optDouble("EUR", 0.0);
 
+            // Calculando conversões para o valor digitado
             double convertedBrl = amount * rateBrl;
             double convertedUsd = amount * rateUsd;
             double convertedEur = amount * rateEur;
 
+            // Construindo o relatório formatado
             StringBuilder sb = new StringBuilder();
             sb.append("📌 Moeda Base Selecionada: ").append(baseCurrency).append("\n\n");
 
