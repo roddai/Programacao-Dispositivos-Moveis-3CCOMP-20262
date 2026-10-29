@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:padding="24dp">
+
+<TextView
+    android:id="@+id/titulo"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="Cotação de Moedas"
+    android:textSize="40sp"
+    android:layout_marginTop="24dp"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+<EditText
+    android:id="@+id/edtMoeda"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:hint="Escolha o tipo de moeda (BRL, USD ou EUR)"
+    android:layout_marginTop="32dp"
+    app:layout_constraintTop_toBottomOf="@id/titulo"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+<EditText
+    android:id="@+id/edtValor"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:hint="Valor para converter"
+    android:inputType="numberDecimal"
+    android:layout_marginTop="12dp"
+    app:layout_constraintTop_toBottomOf="@id/edtMoeda"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+<Button
+    android:id="@+id/btnConsultar"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="Mostrar Valor"
+    android:layout_marginTop="16dp"
+    app:layout_constraintTop_toBottomOf="@id/edtValor"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+<TextView
+    android:id="@+id/txtResultado"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="Resultado"
+    android:textSize="16sp"
+    android:layout_marginTop="24dp"
+    app:layout_constraintTop_toBottomOf="@id/btnConsultar"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
