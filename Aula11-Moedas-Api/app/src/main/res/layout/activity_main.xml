@@ -18,7 +18,7 @@ android:padding="24dp">
     app:layout_constraintEnd_toEndOf="parent" />
 
 <EditText
-    android:id="@+id/edtMoeda"
+    android:id="@+id/editMoeda"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:hint="Escolha o tipo de moeda (BRL, USD ou EUR)"
@@ -28,7 +28,7 @@ android:padding="24dp">
     app:layout_constraintEnd_toEndOf="parent" />
 
 <EditText
-    android:id="@+id/edtValor"
+    android:id="@+id/editValor"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:hint="Valor para converter"
@@ -49,7 +49,7 @@ android:padding="24dp">
     app:layout_constraintEnd_toEndOf="parent" />
 
 <TextView
-    android:id="@+id/txtResultado"
+    android:id="@+id/Resultado"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:text="Resultado"
