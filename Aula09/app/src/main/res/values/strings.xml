@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Aula 08 - Roupas</string>
+    <string name="main_title">Escolha de roupas</string>
+    <string name="btn_proximo">Próximo</string>
+    <string name="form_title">Conte sobre a peça de roupa</string>
+    <string name="nome_hint">Nome da peça (ex.: camiseta)</string>
+    <string name="quantidade_hint">Quantidade de peças</string>
+    <string name="checkbox_opcao1">Possui bolsos</string>
+    <string name="checkbox_opcao2">Possui estampa</string>
+    <string name="condicao_label">A peça é nova?</string>
+    <string name="radio_sim">Sim</string>
+    <string name="radio_nao">Não</string>
+    <string name="spinner_label">Cor da roupa</string>
+    <string-array name="cores">
+        <item>Vermelho</item><item>Azul</item><item>Verde</item>
+        <item>Preto</item><item>Branco</item><item>Outra</item>
+    </string-array>
+    <string name="roupa_label">Foto de referência da roupa</string>
+    <string-array name="roupas">
+        <item>Camiseta branca</item>
+        <item>Camiseta azul</item>
+        <item>Calça jeans</item>
+    </string-array>
+    <string name="foto_descricao">Foto da peça de roupa</string>
+    <string name="avaliacao_label">Quanto você gostou da peça? (opcional)</string>
+    <string name="btn_enviar">Ver resultado</string>
+    <string name="resultado_title">Resumo da roupa</string>
+    <string name="btn_voltar">Voltar ao formulário</string>
+    <string name="nome_obrigatorio">Informe o nome da peça.</string>
+    <string name="quantidade_invalida">Informe uma quantidade entre 1 e 9999.</string>
+    <string name="sem_caracteristicas">Nenhuma selecionada</string>
+    <string name="nao_avaliada">Não avaliada</string>
+    <string name="avaliacao_valor">%1$.0f de 5 estrelas</string>
+    <string name="sem_resultado">Nenhuma informação recebida.</string>
+    <string name="resumo">Peça: %1$s\n\nQuantidade: %2$d\n\nCaracterísticas: %3$s\n\nPeça nova: %4$s\n\nCor: %5$s\n\nAvaliação: %6$s\n\nReferência: %7$s</string>
+</resources>
