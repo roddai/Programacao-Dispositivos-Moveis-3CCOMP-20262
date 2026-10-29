@@ -85,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
         // Executando a requisição HTTP em background com ExecutorService
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(() -> {
-            // Monta dinamicamente a URL da API conforme a moeda base selecionada
             String urlString = "https://api.exchangerate-api.com/v4/latest/" + baseCurrency;
             StringBuilder response = new StringBuilder();
 
@@ -93,11 +92,13 @@ public class MainActivity extends AppCompatActivity {
                 URL url = new URL(urlString);
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("GET");
-                connection.setConnectTimeout(6000);
-                connection.setReadTimeout(6000);
+                connection.setConnectTimeout(8000);
+                connection.setReadTimeout(8000);
 
                 int responseCode = connection.getResponseCode();
+
                 if (responseCode == HttpURLConnection.HTTP_OK) {
+                    // Leitura de Sucesso
                     BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                     String line;
                     while ((line = reader.readLine()) != null) {
@@ -105,13 +106,24 @@ public class MainActivity extends AppCompatActivity {
                     }
                     reader.close();
 
-                    // Retorna o resultado para a Thread Principal para atualizar a UI
                     runOnUiThread(() -> parseAndDisplayResult(response.toString(), baseCurrency, amount));
                 } else {
-                    runOnUiThread(() -> tvResult.setText("Erro no servidor da API. Código: " + responseCode));
+                    // Captura o corpo do erro retornado pelo servidor (caso exista)
+                    BufferedReader errorReader = new BufferedReader(new InputStreamReader(connection.getErrorStream()));
+                    StringBuilder errorResponse = new StringBuilder();
+                    String line;
+                    while ((line = errorReader.readLine()) != null) {
+                        errorResponse.append(line);
+                    }
+                    errorReader.close();
+
+                    String finalErrorMsg = "Erro HTTP: " + responseCode + "\nDetalhes: " + errorResponse.toString();
+                    runOnUiThread(() -> tvResult.setText(finalErrorMsg));
                 }
             } catch (Exception e) {
-                runOnUiThread(() -> tvResult.setText("Falha na conexão: Verifique sua internet."));
+                // Exibe o tipo da exceção e a mensagem exata do erro no Android
+                String errorDetails = e.getClass().getName() + "\nMensagem: " + e.getMessage();
+                runOnUiThread(() -> tvResult.setText("⚠️ Falha na Conexão:\n" + errorDetails));
             }
         });
     }
@@ -121,17 +133,14 @@ public class MainActivity extends AppCompatActivity {
             JSONObject jsonObject = new JSONObject(jsonStr);
             JSONObject rates = jsonObject.getJSONObject("rates");
 
-            // Extraindo cotações para BRL, USD e EUR
             double rateBrl = rates.optDouble("BRL", 0.0);
             double rateUsd = rates.optDouble("USD", 0.0);
             double rateEur = rates.optDouble("EUR", 0.0);
 
-            // Calculando conversões para o valor digitado
             double convertedBrl = amount * rateBrl;
             double convertedUsd = amount * rateUsd;
             double convertedEur = amount * rateEur;
 
-            // Construindo o relatório formatado
             StringBuilder sb = new StringBuilder();
             sb.append("📌 Moeda Base Selecionada: ").append(baseCurrency).append("\n\n");
 
@@ -148,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
             tvResult.setText(sb.toString().trim());
 
         } catch (JSONException e) {
-            tvResult.setText("Erro ao interpretar dados JSON da API.");
+            tvResult.setText("Erro ao interpretar dados JSON:\n" + e.getMessage());
         }
     }
 }
