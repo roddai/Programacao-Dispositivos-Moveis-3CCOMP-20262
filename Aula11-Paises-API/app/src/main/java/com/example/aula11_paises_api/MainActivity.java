@@ -3,13 +3,10 @@ package com.example.aula11_paises_api;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -27,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText etPais;
     private Button btnBuscar;
     private TextView txtInfo;
-    private ImageView imgBandeira;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,25 +33,31 @@ public class MainActivity extends AppCompatActivity {
         etPais = findViewById(R.id.etPais);
         btnBuscar = findViewById(R.id.btnBuscar);
         txtInfo = findViewById(R.id.txtInfo);
-        imgBandeira = findViewById(R.id.imgBandeira);
 
         btnBuscar.setOnClickListener(v -> buscarPais());
     }
 
     private void buscarPais() {
 
-        String pais = etPais.getText().toString().trim();
+        String pais = etPais.getText()
+                .toString()
+                .trim()
+                .toUpperCase();
 
         if (pais.isEmpty()) {
+
             Toast.makeText(
                     this,
-                    "Digite o nome de um país",
+                    "Digite a sigla do país (BR, US, AR)",
                     Toast.LENGTH_SHORT
             ).show();
+
             return;
         }
 
-        String url = "https://restcountries.com/v3.1/name/" + pais;
+        String url =
+                "https://servicodados.ibge.gov.br/api/v1/paises/"
+                        + pais;
 
         OkHttpClient client = new OkHttpClient();
 
@@ -69,33 +71,57 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call call, IOException e) {
 
                 runOnUiThread(() ->
-                        txtInfo.setText("Erro de conexão com a API.")
+                        txtInfo.setText(
+                                "Erro de conexão: "
+                                        + e.getMessage()
+                        )
                 );
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
+            public void onResponse(Call call,
+                                   Response response)
+                    throws IOException {
 
                 try {
 
-                    String json = response.body().string();
+                    String json =
+                            response.body().string();
 
-                    JSONArray array = new JSONArray(json);
+                    JSONArray array =
+                            new JSONArray(json);
 
-                    JSONObject obj = array.getJSONObject(0);
+                    JSONObject paisObj =
+                            array.getJSONObject(0);
 
-                    String nome = obj.getJSONObject("name")
-                            .getString("common");
+                    String nome =
+                            paisObj.getJSONObject("nome")
+                                    .getString("abreviado");
 
-                    String capital = obj.getJSONArray("capital")
-                            .getString(0);
+                    String capital =
+                            paisObj.getJSONObject("governo")
+                                    .getJSONObject("capital")
+                                    .getString("nome");
 
-                    String regiao = obj.getString("region");
+                    String regiao =
+                            paisObj.getJSONObject("localizacao")
+                                    .getJSONObject("regiao")
+                                    .getString("nome");
 
-                    long populacao = obj.getLong("population");
+                    String subRegiao =
+                            paisObj.getJSONObject("localizacao")
+                                    .getJSONObject("sub-regiao")
+                                    .getString("nome");
 
-                    String bandeira = obj.getJSONObject("flags")
-                            .getString("png");
+                    String moeda =
+                            paisObj.getJSONArray("unidades-monetarias")
+                                    .getJSONObject(0)
+                                    .getString("nome");
+
+                    String idioma =
+                            paisObj.getJSONArray("linguas")
+                                    .getJSONObject(0)
+                                    .getString("nome");
 
                     runOnUiThread(() -> {
 
@@ -103,26 +129,22 @@ public class MainActivity extends AppCompatActivity {
                                 "🌎 País: " + nome +
                                         "\n\n🏛 Capital: " + capital +
                                         "\n\n📍 Região: " + regiao +
-                                        "\n\n👥 População: " + populacao
+                                        "\n\n🗺 Sub-Região: " + subRegiao +
+                                        "\n\n🗣 Idioma: " + idioma +
+                                        "\n\n💰 Moeda: " + moeda
                         );
-
-                        Picasso.get()
-                                .load(bandeira)
-                                .into(imgBandeira);
 
                     });
 
                 } catch (Exception e) {
 
-                    runOnUiThread(() -> {
-                        txtInfo.setText("País não encontrado.");
-                        imgBandeira.setImageDrawable(null);
-                    });
-
+                    runOnUiThread(() ->
+                            txtInfo.setText(
+                                    "País não encontrado."
+                            )
+                    );
                 }
-
             }
         });
-
     }
 }
