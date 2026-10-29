@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Material 3 Red Theme - Premium Palette -->
+    <color name="md_theme_primary">#BA1A1A</color>
+    <color name="md_theme_onPrimary">#FFFFFF</color>
+    <color name="md_theme_primaryContainer">#FFDAD6</color>
+    <color name="md_theme_onPrimaryContainer">#410002</color>
+
+    <!-- Gradient Background Colors -->
+    <color name="bg_gradient_start">#B71C1C</color>
+    <color name="bg_gradient_end">#4E0000</color>
+
+    <!-- Surfaces & Text -->
+    <color name="surface_card">#FFFFFF</color>
+    <color name="on_surface_text">#1C1B1F</color>
+    <color name="on_surface_variant">#49454F</color>
+
+    <!-- Legacy support -->
+    <color name="md_theme_light_background">#B71C1C</color>
+    <color name="md_theme_light_onPrimary">#FFFFFF</color>
+    <color name="md_theme_light_primaryContainer">#FFFFFF</color>
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Map Pin Shape -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,20c-13.8,0 -25,11.2 -25,25c0,13.5 18.3,34.7 22.5,39.4c1.4,1.6 3.6,1.6 5,0c4.2,-4.7 22.5,-25.9 22.5,-39.4c0,-13.8 -11.2,-25 -25,-25z" />
+
+    <!-- Magnifying Glass inside Pin -->
+    <path
+        android:fillColor="#BA1A1A"
+        android:pathData="M54,34c-6.1,0 -11,4.9 -11,11c0,2.4 2,4.6 4.3,5.6l-2.3,2.4c-0.6,0.6 -0.6,1.4 0,2s1.4,0.6 2,0l2.3,-2.4c1,0.3 2.2,0.4 3.7,0.4c6.1,0 11,-4.9 11,-11s-4.9,-11 -11,-11zM54,52c-3.9,0 -7,-3.1 -7,-7s3.1,-7 7,-7s7,3.1 7,7s-3.1,7 -7,7z" />
+
+</vector>
