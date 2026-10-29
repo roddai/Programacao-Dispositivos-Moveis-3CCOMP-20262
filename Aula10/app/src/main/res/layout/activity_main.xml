@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="?attr/colorSurface"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Consulta de CEP"
+        android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+        android:textColor="?attr/colorPrimary"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- CEP (Editável) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutCep"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="digite aqui um CEP válido"
+        app:startIconDrawable="@android:drawable/ic_menu_search"
+        app:layout_constraintTop_toBottomOf="@id/tvTitulo"
+        android:layout_marginTop="16dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etCep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="8"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnBuscaCep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BuscaCEP"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/layoutCep"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Número (Editável) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutNumero"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Número"
+        app:layout_constraintTop_toBottomOf="@id/btnBuscaCep"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/layoutComplemento"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etNumero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Complemento (Editável) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutComplemento"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Complemento"
+        app:layout_constraintTop_toTopOf="@id/layoutNumero"
+        app:layout_constraintStart_toEndOf="@id/layoutNumero"
+        app:layout_constraintEnd_toEndOf="parent">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etComplemento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Logradouro (BLOQUEADO) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutLogradouro"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Logradouro"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/layoutNumero">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etLogradouro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:clickable="false"
+            android:cursorVisible="false"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Bairro (BLOQUEADO) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutBairro"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Bairro"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/layoutLogradouro">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etBairro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:clickable="false"
+            android:cursorVisible="false"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Cidade (BLOQUEADO) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutCidade"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Cidade"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/layoutBairro"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/layoutUf"
+        android:layout_marginEnd="8dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etCidade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:clickable="false"
+            android:cursorVisible="false"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- UF (BLOQUEADO) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutUf"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:hint="UF"
+        app:layout_constraintTop_toTopOf="@id/layoutCidade"
+        app:layout_constraintEnd_toEndOf="parent">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etUf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:clickable="false"
+            android:cursorVisible="false"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Região (BLOQUEADO) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutRegiao"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Região"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/layoutCidade"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/layoutDdd"
+        android:layout_marginEnd="8dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etRegiao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:clickable="false"
+            android:cursorVisible="false"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- DDD (BLOQUEADO) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutDdd"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:hint="DDD"
+        app:layout_constraintTop_toTopOf="@id/layoutRegiao"
+        app:layout_constraintEnd_toEndOf="parent">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etDdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:clickable="false"
+            android:cursorVisible="false"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
