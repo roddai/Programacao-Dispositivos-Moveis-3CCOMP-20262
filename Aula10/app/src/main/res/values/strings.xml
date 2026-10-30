@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Consulta de CEP</string>
+    <string name="title_consulta">Consulta de CEP</string>
+    <string name="hint_cep">Digite aqui um CEP valido</string>
+    <string name="btn_buscar">buscar CEP</string>
+    <string name="label_logradouro">Logradouro:</string>
+    <string name="label_complemento">Complemento:</string>
+    <string name="label_bairro">Bairro:</string>
+    <string name="label_localidade">Localidade:</string>
+    <string name="label_uf">UF:</string>
+    <string name="label_estado">Estado:</string>
+    <string name="label_regiao">Região:</string>
+    <string name="label_ddd">DDD:</string>
+    <string name="default_value">---</string>
+    <string name="initial_result">O resultado aparecerá aqui</string>
+    <string name="msg_buscando">Buscando...</string>
+    <string name="error_cep_invalido">Digite um CEP com 8 numeros</string>
+    <string name="error_nao_encontrado">CEP nao encontrado.</string>
+    <string name="error_api">Erro na resposta da API.</string>
+    <string name="error_conexao">Erro de Conexao: %1$s</string>
+</resources>
