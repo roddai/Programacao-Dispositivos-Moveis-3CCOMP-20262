@@ -116,12 +116,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtTituloResultado" />
 
+    <ImageView
+        android:id="@+id/imgBandeira"
+        android:layout_width="160dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="12dp"
+        android:contentDescription="Bandeira do país"
+        android:scaleType="fitCenter"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linhaResultado" />
+
     <TextView
         android:id="@+id/txtResultado"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
         android:background="@color/fundo_resultado"
@@ -135,6 +147,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linhaResultado" />
+        app:layout_constraintTop_toBottomOf="@id/imgBandeira" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
