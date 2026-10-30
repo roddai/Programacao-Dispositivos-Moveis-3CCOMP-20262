@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="verde_principal">#2E7D63</color>
+    <color name="verde_claro">#E7F3EE</color>
+    <color name="fundo_tela">#F7F7F7</color>
+    <color name="fundo_resultado">#FFFFFF</color>
+    <color name="texto_principal">#26332F</color>
+    <color name="texto_secundario">#66736F</color>
+    <color name="linha_resultado">#B8CEC7</color>
+    <color name="branco">#FFFFFF</color>
+
+</resources>

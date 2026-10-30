@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="roxo_principal">#5B4BB7</color>
+    <color name="roxo_escuro">#43358F</color>
+    <color name="roxo_claro">#E8E4FF</color>
+
+    <color name="fundo_tela">#F4F3FA</color>
+    <color name="fundo_resultado">#FFFFFF</color>
+
+    <color name="texto_principal">#262333</color>
+    <color name="texto_secundario">#646072</color>
+
+    <color name="linha_divisoria">#D9D6E5</color>
+
+    <color name="branco">#FFFFFF</color>
+
+</resources>
