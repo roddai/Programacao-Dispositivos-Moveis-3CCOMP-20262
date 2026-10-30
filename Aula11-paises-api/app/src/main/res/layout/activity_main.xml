@@ -12,9 +12,10 @@
         android:id="@+id/tvTitulo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Consulta de Países (IBGE)"
-        android:textSize="22sp"
+        android:text="Consulta de Países"
+        android:textSize="24sp"
         android:textStyle="bold"
+        android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -39,26 +40,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <ImageView
-        android:id="@+id/ivBandeira"
-        android:layout_width="160dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="20dp"
-        android:contentDescription="Bandeira do país"
-        android:scaleType="fitCenter"
-        app:layout_constraintTop_toBottomOf="@id/btnBuscar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <TextView
         android:id="@+id/tvResultado"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="16sp"
-        android:lineSpacingExtra="4dp"
-        android:text="Insira algum nome de país para consultar os dados."
-        app:layout_constraintTop_toBottomOf="@id/ivBandeira"
+        android:layout_marginTop="24dp"
+        android:textSize="18sp"
+        android:lineSpacingExtra="6dp"
+        android:text="Insira o nome do país para consultar."
+        app:layout_constraintTop_toBottomOf="@id/btnBuscar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
