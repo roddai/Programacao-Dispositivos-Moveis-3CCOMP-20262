@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private Spinner spinnerPais;
     private TextView tvIndicadorPais;
     private Button btnPesquisar;
-    private TextView tvEmojiBandeira, tvNomePais, tvCapital, tvRegiao, tvPopulacao;
+    private TextView tvEmojiBandeira, tvNomePais, tvCapital, tvRegiao, tvLinguas;
 
     private final Map<String, String> paisesIsoMap = new HashMap<String, String>() {{
         put("Brasil", "BR");
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         tvNomePais = findViewById(R.id.tvNomePais);
         tvCapital = findViewById(R.id.tvCapital);
         tvRegiao = findViewById(R.id.tvRegiao);
-        tvPopulacao = findViewById(R.id.tvPopulacao);
+        tvLinguas = findViewById(R.id.tvLingua);
 
         configurarSpinner();
 
@@ -128,6 +128,19 @@ public class MainActivity extends AppCompatActivity {
                             String nome = paisObj.getJSONObject("nome").getString("abreviado");
                             String capital = paisObj.getJSONObject("governo").getJSONObject("capital").getString("nome");
                             String regiao = paisObj.getJSONObject("localizacao").getJSONObject("regiao").getString("nome");
+
+                            // Extração das línguas do JSON da API do IBGE
+                            JSONArray linguasArray = paisObj.getJSONArray("linguas");
+                            StringBuilder sbLinguas = new StringBuilder();
+                            for (int i = 0; i < linguasArray.length(); i++) {
+                                JSONObject linguaObj = linguasArray.getJSONObject(i);
+                                sbLinguas.append(linguaObj.getString("nome"));
+                                if (i < linguasArray.length() - 1) {
+                                    sbLinguas.append(", ");
+                                }
+                            }
+                            String linguasStr = sbLinguas.length() > 0 ? sbLinguas.toString() : "Não informada";
+
                             String emoji = paisesEmojiMap.get(nomePaisSelecionado);
 
                             runOnUiThread(() -> {
@@ -135,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
                                 tvNomePais.setText(nome);
                                 tvCapital.setText("Capital: " + capital);
                                 tvRegiao.setText("Região: " + regiao);
-                                tvPopulacao.setText("População: Informação via API IBGE");
+                                tvLinguas.setText("Línguas: " + linguasStr);
                             });
                         }
                     } catch (Exception e) {
