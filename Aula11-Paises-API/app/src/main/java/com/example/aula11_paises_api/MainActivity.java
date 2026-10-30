@@ -92,9 +92,9 @@ public class MainActivity extends AppCompatActivity {
                     JSONArray lista = new JSONArray(resposta);
                     JSONObject dados = lista.getJSONObject(0);
 
-                    String nome = dados.getJSONObject("name").getString("common");
+                    String nome = dados.getJSONObject("nome").getString("common");
 
-                    String capital = "Nao informada";
+                    String capital = "Nao foi escolhida";
 
                     if (dados.has("capital") && !dados.isNull("capital")) {
 
@@ -105,12 +105,11 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
 
-                    String regiao = dados.getString("region");
+                    String regiao = dados.getString("regiao");
 
-                    long populacao = dados.getLong("population");
+                    long populacao = dados.getLong("população");
 
-                    String bandeira = dados.getJSONObject("flags")
-                            .getString("png");
+                    String bandeira = dados.getJSONObject("badeira").getString("png");
 
                     String resultado =
                             "Pais: " + nome + "\nCapital: " + capital + "\nRegiao: " + regiao + "\nPopulacao: " + String.format("%,d", populacao);
@@ -156,4 +155,4 @@ public class MainActivity extends AppCompatActivity {
 
             }).start();
         });
-    }
+    }}
