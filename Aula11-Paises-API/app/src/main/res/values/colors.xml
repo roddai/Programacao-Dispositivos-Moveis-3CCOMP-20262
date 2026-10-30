@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <item name="color_green" type="color">#2E7D32</item>     <!-- Verde Folha (Sucesso/Ações) -->
+    <item name="color_blue" type="color">#0288D1</item>      <!-- Azul Oceano (Destaques/Links) -->
+    <item name="color_brown" type="color">#6D4C41</item>     <!-- Marrom Café (Textos de apoio/Títulos) -->
+    <item name="color_yellow" type="color">#FBC02D</item>    <!-- Amarelo Âmbar (Alertas/Ícones) -->
+
+    <!-- Fundo e Superfícies -->
+    <item name="color_white" type="color">#FFFFFF</item>     <!-- Branco Puro (Cards/Inputs) -->
+    <item name="bg_light" type="color">#F7F9F6</item>        <!-- Fundo Claro com leve toque neutro -->
+
+    <!-- Textos -->
+    <item name="text_primary" type="color">#2C2C2C</item>    <!-- Grafite Escuro para leitura perfeita -->
+    <item name="text_secondary" type="color">#6D4C41</item>
 </resources>
