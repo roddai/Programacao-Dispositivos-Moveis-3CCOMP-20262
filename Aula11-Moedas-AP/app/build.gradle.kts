@@ -3,13 +3,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.aula11_paises_api"
+    namespace = "com.example.aula11_moedas_ap"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.example.aula11_paises_api"
+        applicationId = "com.example.aula11_moedas_ap"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
