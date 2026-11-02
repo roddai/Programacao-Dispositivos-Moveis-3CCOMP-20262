@@ -4,14 +4,12 @@ plugins {
 
 android {
     namespace = "com.example.myapplication"
-    compileSdk {
-        version = release(37)
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.myapplication"
         minSdk = 24
-        targetSdk = 37
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -20,9 +18,11 @@ android {
 
     buildTypes {
         release {
-            optimization {
-                enable = false
-            }
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -36,6 +36,13 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.constraintlayout)
     implementation(libs.material)
+
+    // Dependência para requisições HTTP (Volley)
+    implementation("com.android.volley:volley:1.2.1")
+
+    // Dependência para carregar imagem da bandeira a partir de URL (Picasso)
+    implementation("com.squareup.picasso:picasso:2.8")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.ext.junit)
