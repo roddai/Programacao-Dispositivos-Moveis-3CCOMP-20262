@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_light"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="32dp">
+
+    <!-- Ícone de sucesso -->
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="@string/success_title"
+        android:src="@mipmap/ic_launcher_round" />
+
+    <!-- Título -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="@string/success_title"
+        android:textColor="@color/primary"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <!-- Mensagem -->
+    <TextView
+        android:id="@+id/tvSuccessMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:gravity="center"
+        android:text="@string/success_message"
+        android:textColor="@color/gray_text"
+        android:textSize="16sp" />
+
+    <!-- Botão Sair -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogout"
+        android:layout_width="200dp"
+        android:layout_height="52dp"
+        android:text="@string/btn_logout"
+        android:textSize="15sp"
+        android:backgroundTint="@color/primary" />
+
+</LinearLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Aula12</string>
+
+    <!-- Login -->
+    <string name="hint_email">E-mail</string>
+    <string name="hint_password">Senha</string>
+    <string name="btn_login">Entrar</string>
+    <string name="btn_go_register">Não tem conta? Cadastre-se</string>
+
+    <!-- Register (Cadastro) -->
+    <string name="hint_name">Nome completo</string>
+    <string name="btn_register">Cadastrar</string>
+    <string name="btn_back_login">Voltar para Login</string>
+
+    <!-- Success -->
+    <string name="success_title">Bem-vindo!</string>
+    <string name="success_message">Você foi autenticado com sucesso.</string>
+    <string name="btn_logout">Sair</string>
+
+    <!-- Errors -->
+    <string name="error_empty_fields">Preencha todos os campos.</string>
+    <string name="error_invalid_email">Informe um e-mail válido.</string>
+</resources>
