@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Aula 12</string>
+    <string name="login_title">Bem-vindo de volta</string>
+    <string name="login_subtitle">Entre com seus dados para acessar</string>
+    <string name="register_title">Criar Conta</string>
+    <string name="register_subtitle">Preencha os campos para se cadastrar</string>
+    <string name="label_name">Nome</string>
+    <string name="label_email">E-mail</string>
+    <string name="label_password">Senha</string>
+    <string name="btn_login">Entrar</string>
+    <string name="btn_register">Cadastrar</string>
+    <string name="prompt_no_account">Não tem uma conta? Cadastre-se</string>
+    <string name="prompt_has_account">Já tem uma conta? Faça Login</string>
+    <string name="auth_success_msg">Usuário autenticado com sucesso</string>
+    <string name="btn_logout">Sair</string>
+    <string name="welcome_user">Olá, %1$s!</string>
+    <string name="err_empty_fields">Preencha todos os campos</string>
+    <string name="err_invalid_email">Digite um e-mail válido</string>
+</resources>
