@@ -31,12 +31,8 @@ public class AccessActivity extends AppCompatActivity {
         });
 
         ImageView ivProfilePhoto = findViewById(R.id.ivProfilePhoto);
-        TextView tvSuccessMessage = findViewById(R.id.tvSuccessMessage);
         TextView tvWelcomeUser = findViewById(R.id.tvWelcomeUser);
         Button btnLogout = findViewById(R.id.btnLogout);
-
-        // Define a mensagem conforme requisito: "Usuário autenticado com sucesso"
-        tvSuccessMessage.setText(R.string.auth_success_msg);
 
         String userName = getIntent().getStringExtra("USER_NAME");
         if (userName != null && !userName.isEmpty()) {

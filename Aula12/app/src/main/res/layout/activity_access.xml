@@ -45,30 +45,19 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/tvSuccessMessage"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:gravity="center"
-                    android:text="@string/auth_success_msg"
-                    android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ivProfilePhoto" />
+                <!-- O TextView tvSuccessMessage foi removido daqui -->
 
                 <TextView
                     android:id="@+id/tvWelcomeUser"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="24dp"
                     android:gravity="center"
                     android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
                     android:textColor="?android:attr/textColorSecondary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvSuccessMessage"
+                    app:layout_constraintTop_toBottomOf="@id/ivProfilePhoto"
                     tools:text="Olá, Usuário!" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
