@@ -7,6 +7,11 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
+    <string name="error_empty_fields">Preencha todos os campos.</string>
+    <string name="error_invalid_email">Insira um e-mail válido.</string>
+    <string name="btn_register">Cadastrar</string>
+    <string name="btn_login">Logar</string>
+
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus

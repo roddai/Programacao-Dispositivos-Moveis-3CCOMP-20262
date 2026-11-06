@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.android.volley.Request
+import com.android.volley.Request.Method.POST
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.material.button.MaterialButton
@@ -16,7 +16,7 @@ class LoginActivity : AppCompatActivity() {
 
     // ⚠️ Troque pelo IP da sua máquina na rede local (ex: 192.168.x.x)
     // Use 10.0.2.2 se for rodar no emulador Android padrão
-    private val BASE_URL = "http://127.0.0.1:8080/mobile_app/"
+    private val baseUrl = "http://127.0.0.1:8080/mobile_app/"
 
     private lateinit var etEmail: TextInputEditText
     private lateinit var etPassword: TextInputEditText
@@ -53,15 +53,15 @@ class LoginActivity : AppCompatActivity() {
             return
         }
 
-        setLoading(true)
+        setLoading(loading = true)
 
-        val url = "${BASE_URL}login.php"
+        val url = "${baseUrl}login.php"
         val queue = Volley.newRequestQueue(this)
 
         val request = object : StringRequest(
-            Method.POST, url,
+            POST, url,
             { response ->
-                setLoading(false)
+                setLoading(loading = false)
                 try {
                     val json = JSONObject(response)
                     val success = json.getBoolean("success")
@@ -77,11 +77,12 @@ class LoginActivity : AppCompatActivity() {
                         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
                     }
                 } catch (e: Exception) {
+                    e.printStackTrace()
                     Toast.makeText(this, "Erro ao processar resposta do servidor.", Toast.LENGTH_LONG).show()
                 }
             },
             { error ->
-                setLoading(false)
+                setLoading(loading = false)
                 val msg = when {
                     error.networkResponse != null ->
                         "Erro ${error.networkResponse.statusCode}: verifique o servidor."

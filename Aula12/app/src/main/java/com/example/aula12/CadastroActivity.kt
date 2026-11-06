@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.android.volley.Request.Method.POST
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.material.button.MaterialButton
@@ -12,8 +13,7 @@ import org.json.JSONObject
 
 class CadastroActivity : AppCompatActivity() {
 
-    // ⚠️ Mesmo endereço base da LoginActivity
-    private val BASE_URL = "http://127.0.0.1:8080/mobile_app/"
+    private val baseUrl = "http://127.0.0.1:8080/mobile_app/"
 
     private lateinit var etNome: TextInputEditText
     private lateinit var etEmail: TextInputEditText
@@ -55,15 +55,15 @@ class CadastroActivity : AppCompatActivity() {
             return
         }
 
-        setLoading(true)
+        setLoading(loading = true)
 
-        val url = "${BASE_URL}register.php"
+        val url = "${baseUrl}register.php"
         val queue = Volley.newRequestQueue(this)
 
         val request = object : StringRequest(
-            Method.POST, url,
+            POST, url,
             { response ->
-                setLoading(false)
+                setLoading(loading = false)
                 try {
                     val json = JSONObject(response)
                     val success = json.getBoolean("success")
@@ -77,11 +77,12 @@ class CadastroActivity : AppCompatActivity() {
                         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
                     }
                 } catch (e: Exception) {
+                    e.printStackTrace()
                     Toast.makeText(this, "Erro ao processar resposta do servidor.", Toast.LENGTH_LONG).show()
                 }
             },
             { error ->
-                setLoading(false)
+                setLoading(loading = false)
                 val msg = when {
                     error.networkResponse != null ->
                         "Erro ${error.networkResponse.statusCode}: verifique o servidor."
