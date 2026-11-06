@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Projeto Aula 08</string>
+
+    <!-- Tela Inicial -->
+    <string name="main_title">Tela Inicial</string>
+
+    <!-- Formulário -->
+    <string name="form_title">Formulário</string>
+    <string name="nome_hint">Digite seu nome</string>
+    <string name="idade_hint">Digite sua idade</string>
+    <string name="checkbox_opcao1">Opção 1</string>
+    <string name="checkbox_opcao2">Opção 2</string>
+    <string name="radio_sim">Sim</string>
+    <string name="radio_nao">Não</string>
+    <string name="spinner_label">Escolha uma cor</string>
+    <string name="avaliacao_label">Avalie nosso app</string>
+    <string name="btn_proximo">Próximo</string>
+
+    <!-- Resultado -->
+    <string name="resultado_title">Resultado</string>
+    <string name="btn_voltar">Voltar</string>
+</resources>
