@@ -19,6 +19,7 @@
             style="@style/Widget.Material3.CardView.Elevated"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:cardBackgroundColor="#1A237E"
             app:cardCornerRadius="28dp"
             app:cardElevation="6dp"
             app:layout_constraintBottom_toTopOf="@id/btnLogout"
@@ -45,8 +46,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <!-- O TextView tvSuccessMessage foi removido daqui -->
-
                 <TextView
                     android:id="@+id/tvWelcomeUser"
                     android:layout_width="0dp"
@@ -54,7 +53,7 @@
                     android:layout_marginTop="24dp"
                     android:gravity="center"
                     android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
-                    android:textColor="?android:attr/textColorSecondary"
+                    android:textColor="@android:color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/ivProfilePhoto"
