@@ -3,8 +3,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     android:padding="32dp">
 
     <TextView
@@ -20,9 +20,9 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginBottom="16dp"
+        android:autofillHints="emailAddress"
         android:hint="E-mail"
         android:inputType="textEmailAddress"
-        android:autofillHints="emailAddress"
         android:paddingStart="12dp"
         android:paddingEnd="12dp" />
 
@@ -31,9 +31,9 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginBottom="24dp"
+        android:autofillHints="password"
         android:hint="Senha"
         android:inputType="textPassword"
-        android:autofillHints="password"
         android:paddingStart="12dp"
         android:paddingEnd="12dp" />
 
