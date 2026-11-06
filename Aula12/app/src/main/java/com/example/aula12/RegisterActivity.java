@@ -45,13 +45,13 @@ import java.util.concurrent.Executors;
 public class RegisterActivity extends AppCompatActivity {
 
     private ImageView ivSelectPhoto;
+    private TextView tvPhotoHint;
     private EditText etName;
     private EditText etEmail;
     private EditText etPassword;
     private Button btnRegister;
     private Button btnBackToLogin;
     private ProgressBar progressBar;
-    private TextView tvPhotoHint;
 
     private String selectedPhotoBase64 = "";
 
@@ -108,6 +108,8 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         btnRegister.setOnClickListener(v -> performRegister());
+
+        // Ação para voltar para a tela de login
         btnBackToLogin.setOnClickListener(v -> finish());
     }
 
@@ -116,6 +118,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void performRegister() {
+        // Lógica de cadastro existente...
         String name = etName.getText().toString().trim();
         String email = etEmail.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
