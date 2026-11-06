@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,9 +27,9 @@ import java.util.concurrent.Executors;
 public class MainActivity extends AppCompatActivity {
 
     private TextInputLayout tilCep;
-    private TextInputEditText etCep;
+    private TextInputEditText etCep, etNumero, etComplemento;
     private MaterialButton btnSearch;
-    private android.widget.TextView tvResult;
+    private TextView tvResult;
     private MaterialCardView cardResult;
     private LinearProgressIndicator progressIndicator;
     
@@ -42,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         // Inicialização dos componentes Material
         tilCep = findViewById(R.id.tilCep);
         etCep = findViewById(R.id.etCep);
+        etNumero = findViewById(R.id.etNumero);
+        etComplemento = findViewById(R.id.etComplemento);
         btnSearch = findViewById(R.id.btnSearch);
         tvResult = findViewById(R.id.tvResult);
         cardResult = findViewById(R.id.cardResult);
@@ -51,9 +54,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String cep = etCep.getText().toString().trim();
+                String numero = etNumero.getText().toString().trim();
+                String complemento = etComplemento.getText().toString().trim();
+                
                 if (validateCep(cep)) {
                     hideKeyboard();
-                    searchCep(cep);
+                    searchCep(cep, numero, complemento);
                 }
             }
         });
@@ -81,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void searchCep(String cep) {
+    private void searchCep(String cep, String numeroDigitado, String complementoDigitado) {
         // Estado inicial da busca
         progressIndicator.setVisibility(View.VISIBLE);
         cardResult.setVisibility(View.GONE);
@@ -119,10 +125,30 @@ public class MainActivity extends AppCompatActivity {
                         String bairro = jsonResponse.optString("bairro", "Não informado");
                         String localidade = jsonResponse.optString("localidade", "");
                         String uf = jsonResponse.optString("uf", "");
+                        String regiao = jsonResponse.optString("regiao", "Não informada");
+                        String ddd = jsonResponse.optString("ddd", "Não informado");
                         
-                        resultText = "📍 Logradouro: " + logradouro + "\n" +
-                                     "🏠 Bairro: " + bairro + "\n" +
-                                     "🌆 Cidade: " + localidade + " - " + uf;
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("📍 Logradouro: ").append(logradouro);
+                        if (!numeroDigitado.isEmpty()) {
+                            sb.append(", nº ").append(numeroDigitado);
+                        }
+                        
+                        if (!complementoDigitado.isEmpty()) {
+                            sb.append("\n📝 Complemento: ").append(complementoDigitado);
+                        } else {
+                            String compApi = jsonResponse.optString("complemento", "");
+                            if (!compApi.isEmpty()) {
+                                sb.append("\n📝 Complemento: ").append(compApi);
+                            }
+                        }
+                        
+                        sb.append("\n🏠 Bairro: ").append(bairro)
+                          .append("\n🌆 Cidade: ").append(localidade).append(" - ").append(uf)
+                          .append("\n🌍 Região: ").append(regiao)
+                          .append("\n📞 DDD: ").append(ddd);
+                        
+                        resultText = sb.toString();
                     }
                 } else {
                     resultText = "Erro no servidor (Código: " + responseCode + ")";

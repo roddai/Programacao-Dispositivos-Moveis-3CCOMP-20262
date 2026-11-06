@@ -12,7 +12,7 @@
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="Consulta de CEP"
         android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
         android:textColor="?attr/colorPrimary"
@@ -21,13 +21,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Ícone de Lupa separado do campo de texto -->
     <ImageView
         android:id="@+id/ivSearchIcon"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginStart="4dp"
-        android:contentDescription="Lupa de busca"
+        android:contentDescription="Lupa"
         android:src="@android:drawable/ic_menu_search"
         app:layout_constraintBottom_toBottomOf="@id/tilCep"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,8 +38,8 @@
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:hint="digite aqui um cep valido"
         app:helperText="Apenas os 8 números"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +52,47 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:maxLength="8" />
+    </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilNumero"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="Número"
+        app:layout_constraintEnd_toStartOf="@+id/tilComplemento"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilCep">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etNumero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilComplemento"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:hint="Complemento"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintStart_toEndOf="@+id/tilNumero"
+        app:layout_constraintTop_toBottomOf="@id/tilCep">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etComplemento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
@@ -65,21 +104,20 @@
         android:text="Buscar CEP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tilCep" />
+        app:layout_constraintTop_toBottomOf="@id/tilNumero" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardResult"
         style="@style/Widget.Material3.CardView.Elevated"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:visibility="gone"
         app:cardCornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnSearch">
 
-        <!-- ConstraintLayout interno para o resultado -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -89,7 +127,7 @@
                 android:id="@+id/tvLabelResult"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Resultado da Busca"
+                android:text="Endereço Encontrado"
                 android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
                 android:textColor="?attr/colorSecondary"
                 app:layout_constraintStart_toStartOf="parent"
@@ -104,7 +142,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvLabelResult"
-                tools:text="Rua Exemplo, 123\nBairro Exemplo\nCidade - UF" />
+                tools:text="📍 Logradouro: Rua Exemplo, 123\n🏠 Bairro: Centro\n🌆 Cidade: São Paulo - SP\n🌍 Região: Sudeste\n📞 DDD: 11" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
