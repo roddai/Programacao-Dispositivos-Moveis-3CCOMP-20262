@@ -1,16 +1,24 @@
 package com.example.aula12;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Base64;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -22,6 +30,7 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -35,15 +44,41 @@ import java.util.concurrent.Executors;
 
 public class RegisterActivity extends AppCompatActivity {
 
+    private ImageView ivSelectPhoto;
     private EditText etName;
     private EditText etEmail;
     private EditText etPassword;
     private Button btnRegister;
     private Button btnBackToLogin;
     private ProgressBar progressBar;
+    private TextView tvPhotoHint;
+
+    private String selectedPhotoBase64 = "";
 
     private final ExecutorService executor = Executors.newSingleThreadExecutor();
     private final Handler handler = new Handler(Looper.getMainLooper());
+
+    private final ActivityResultLauncher<String> photoPickerLauncher =
+            registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
+                if (uri != null) {
+                    try {
+                        InputStream inputStream = getContentResolver().openInputStream(uri);
+                        Bitmap originalBitmap = BitmapFactory.decodeStream(inputStream);
+                        if (originalBitmap != null) {
+                            Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, 300, 300, true);
+                            ivSelectPhoto.setImageBitmap(scaledBitmap);
+
+                            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                            scaledBitmap.compress(Bitmap.CompressFormat.JPEG, 80, byteArrayOutputStream);
+                            byte[] byteArray = byteArrayOutputStream.toByteArray();
+                            selectedPhotoBase64 = Base64.encodeToString(byteArray, Base64.NO_WRAP);
+                            Toast.makeText(this, "Foto selecionada!", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (Exception e) {
+                        Toast.makeText(this, "Erro ao carregar imagem selecionada", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +92,8 @@ public class RegisterActivity extends AppCompatActivity {
             return insets;
         });
 
+        ivSelectPhoto = findViewById(R.id.ivSelectPhoto);
+        tvPhotoHint = findViewById(R.id.tvPhotoHint);
         etName = findViewById(R.id.etName);
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
@@ -64,9 +101,18 @@ public class RegisterActivity extends AppCompatActivity {
         btnBackToLogin = findViewById(R.id.btnBackToLogin);
         progressBar = findViewById(R.id.progressBar);
 
-        btnRegister.setOnClickListener(v -> performRegister());
+        View.OnClickListener choosePhotoClickListener = v -> openPhotoGallery();
+        ivSelectPhoto.setOnClickListener(choosePhotoClickListener);
+        if (tvPhotoHint != null) {
+            tvPhotoHint.setOnClickListener(choosePhotoClickListener);
+        }
 
+        btnRegister.setOnClickListener(v -> performRegister());
         btnBackToLogin.setOnClickListener(v -> finish());
+    }
+
+    private void openPhotoGallery() {
+        photoPickerLauncher.launch("image/*");
     }
 
     private void performRegister() {
@@ -91,14 +137,15 @@ public class RegisterActivity extends AppCompatActivity {
                 URL url = new URL(ApiConfig.URL_REGISTER);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("POST");
-                conn.setConnectTimeout(7000);
-                conn.setReadTimeout(7000);
+                conn.setConnectTimeout(10000);
+                conn.setReadTimeout(10000);
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
 
                 String postData = "nome=" + URLEncoder.encode(name, "UTF-8")
                         + "&email=" + URLEncoder.encode(email, "UTF-8")
-                        + "&password=" + URLEncoder.encode(password, "UTF-8");
+                        + "&password=" + URLEncoder.encode(password, "UTF-8")
+                        + "&foto=" + URLEncoder.encode(selectedPhotoBase64, "UTF-8");
 
                 try (OutputStream os = conn.getOutputStream();
                      BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, StandardCharsets.UTF_8))) {

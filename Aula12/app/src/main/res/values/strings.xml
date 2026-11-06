@@ -16,4 +16,6 @@
     <string name="welcome_user">Olá, %1$s!</string>
     <string name="err_empty_fields">Preencha todos os campos</string>
     <string name="err_invalid_email">Digite um e-mail válido</string>
+    <string name="photo_hint">Toque para escolher uma foto</string>
+    <string name="photo_desc">Foto de Perfil</string>
 </resources>

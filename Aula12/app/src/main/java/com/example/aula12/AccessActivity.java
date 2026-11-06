@@ -1,9 +1,13 @@
 package com.example.aula12;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +30,7 @@ public class AccessActivity extends AppCompatActivity {
             return insets;
         });
 
+        ImageView ivProfilePhoto = findViewById(R.id.ivProfilePhoto);
         TextView tvSuccessMessage = findViewById(R.id.tvSuccessMessage);
         TextView tvWelcomeUser = findViewById(R.id.tvWelcomeUser);
         Button btnLogout = findViewById(R.id.btnLogout);
@@ -39,6 +44,19 @@ public class AccessActivity extends AppCompatActivity {
             tvWelcomeUser.setVisibility(View.VISIBLE);
         } else {
             tvWelcomeUser.setVisibility(View.GONE);
+        }
+
+        String userFotoBase64 = getIntent().getStringExtra("USER_FOTO");
+        if (userFotoBase64 != null && !userFotoBase64.isEmpty()) {
+            try {
+                byte[] decodedBytes = Base64.decode(userFotoBase64, Base64.DEFAULT);
+                Bitmap bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+                if (bitmap != null) {
+                    ivProfilePhoto.setImageBitmap(bitmap);
+                }
+            } catch (Exception e) {
+                // Caso ocorra falha ao carregar a imagem, o ícone padrão será mantido
+            }
         }
 
         btnLogout.setOnClickListener(v -> {

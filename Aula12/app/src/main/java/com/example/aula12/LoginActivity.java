@@ -128,10 +128,12 @@ public class LoginActivity extends AppCompatActivity {
 
                         if (success) {
                             String userName = jsonObject.optString("nome", "");
+                            String userFoto = jsonObject.optString("foto", "");
                             Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
 
                             Intent intent = new Intent(LoginActivity.this, AccessActivity.class);
                             intent.putExtra("USER_NAME", userName);
+                            intent.putExtra("USER_FOTO", userFoto);
                             startActivity(intent);
                             finish();
                         } else {
