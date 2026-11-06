@@ -1,15 +1,22 @@
 package com.example.aula12;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -35,14 +42,32 @@ public class RegisterActivity extends AppCompatActivity {
 
     private static final String URL_REGISTER = "http://10.0.2.2/mobile_app/register.php";
 
+    private FrameLayout layoutFoto;
+    private ImageView imgFoto;
+    private TextView tvEscolherFoto;
     private EditText edtNome;
     private EditText edtEmail;
     private EditText edtPassword;
     private EditText edtConfirmPassword;
     private Button btnCadastrar;
-    private TextView tvVoltarLogin;
+    private Button btnVoltarLogin;
     private ProgressBar progressBar;
     private RequestQueue requestQueue;
+
+    private Uri fotoSelecionadaUri = null;
+
+    private final ActivityResultLauncher<String> pickImageLauncher =
+            registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
+                if (uri != null) {
+                    fotoSelecionadaUri = uri;
+                    try {
+                        final int takeFlags = Intent.FLAG_GRANT_READ_URI_PERMISSION;
+                        getContentResolver().takePersistableUriPermission(uri, takeFlags);
+                    } catch (Exception ignored) {
+                    }
+                    imgFoto.setImageURI(uri);
+                }
+            });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,19 +81,27 @@ public class RegisterActivity extends AppCompatActivity {
             return insets;
         });
 
+        layoutFoto = findViewById(R.id.layoutFoto);
+        imgFoto = findViewById(R.id.imgFoto);
+        tvEscolherFoto = findViewById(R.id.tvEscolherFoto);
         edtNome = findViewById(R.id.edtNome);
         edtEmail = findViewById(R.id.edtEmail);
         edtPassword = findViewById(R.id.edtPassword);
         edtConfirmPassword = findViewById(R.id.edtConfirmPassword);
         btnCadastrar = findViewById(R.id.btnCadastrar);
-        tvVoltarLogin = findViewById(R.id.tvVoltarLogin);
+        btnVoltarLogin = findViewById(R.id.btnVoltarLogin);
         progressBar = findViewById(R.id.progressBar);
 
         requestQueue = Volley.newRequestQueue(this);
 
+        View.OnClickListener selecionarFotoListener = v -> pickImageLauncher.launch("image/*");
+        layoutFoto.setOnClickListener(selecionarFotoListener);
+        imgFoto.setOnClickListener(selecionarFotoListener);
+        tvEscolherFoto.setOnClickListener(selecionarFotoListener);
+
         btnCadastrar.setOnClickListener(v -> validarECadastrar());
 
-        tvVoltarLogin.setOnClickListener(v -> finish());
+        btnVoltarLogin.setOnClickListener(v -> finish());
     }
 
     private void validarECadastrar() {
@@ -144,10 +177,15 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_LONG).show();
 
                             if (success) {
-                                // Muda de tela somente após confirmação de success == true
+                                // Salvar a URI da foto em SharedPreferences após cadastro com sucesso
+                                if (fotoSelecionadaUri != null) {
+                                    SharedPreferences prefs = getSharedPreferences("user_session", MODE_PRIVATE);
+                                    prefs.edit().putString("foto_uri", fotoSelecionadaUri.toString()).apply();
+                                }
+
+                                // Fechar RegisterActivity e retornar automaticamente para LoginActivity
                                 finish();
                             } else {
-                                // Reativa o botão se success for false
                                 btnCadastrar.setEnabled(true);
                             }
                         } catch (JSONException e) {

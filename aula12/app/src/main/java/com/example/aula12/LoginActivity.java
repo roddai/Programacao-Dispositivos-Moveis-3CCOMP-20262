@@ -1,6 +1,7 @@
 package com.example.aula12;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -46,6 +47,18 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Se já estiver logado, redireciona para a SuccessActivity
+        SharedPreferences prefs = getSharedPreferences("user_session", MODE_PRIVATE);
+        if (prefs.getBoolean("logged_in", false)) {
+            Intent intent = new Intent(LoginActivity.this, SuccessActivity.class);
+            intent.putExtra("usu_nome", prefs.getString("usu_nome", ""));
+            intent.putExtra("usu_email", prefs.getString("usu_email", ""));
+            startActivity(intent);
+            finish();
+            return;
+        }
+
         WindowCompat.enableEdgeToEdge(getWindow());
         setContentView(R.layout.activity_login);
 
@@ -125,7 +138,23 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this, message, Toast.LENGTH_LONG).show();
 
                             if (success) {
-                                // Login realizado com sucesso
+                                String usuNome = jsonObject.optString("usu_nome", "");
+                                String usuEmail = jsonObject.optString("usu_email", email);
+
+                                // Salvar dados da sessão em SharedPreferences
+                                SharedPreferences prefs = getSharedPreferences("user_session", MODE_PRIVATE);
+                                prefs.edit()
+                                        .putBoolean("logged_in", true)
+                                        .putString("usu_nome", usuNome)
+                                        .putString("usu_email", usuEmail)
+                                        .apply();
+
+                                // Abrir SuccessActivity enviando usu_nome e usu_email pelo Intent
+                                Intent intent = new Intent(LoginActivity.this, SuccessActivity.class);
+                                intent.putExtra("usu_nome", usuNome);
+                                intent.putExtra("usu_email", usuEmail);
+                                startActivity(intent);
+                                finish();
                             }
                         } catch (JSONException e) {
                             Toast.makeText(LoginActivity.this, "Erro ao processar resposta: " + e.getMessage(), Toast.LENGTH_SHORT).show();
